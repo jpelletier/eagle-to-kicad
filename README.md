@@ -13,7 +13,7 @@
 	* Make project director to store all the converted files.  
 	* And basic error checking.  
 	* Eagle 6.xx PCB files can be directly imported to KiCad.  
-	* Eagle *LBRs*(any version of Eagel libs or size ) can be converted to KiCad lib/mod using eagle-lbr2kicad-1.0.ulp see  
+	* Eagle *LBRs*(any version of Eagle libs or size ) can be converted to KiCad lib/mod using eagle-lbr2kicad-1.0.ulp see  
 	* [Eagle Lib conversion]( https://github.com/lachlanA/eagle-to-kicad-libs) for more details.  
 	* Converts Vias to Pads, which helps with KiCad's flood fill, when Vias have no connections.  
 	* Documents fills over SMD pads on Eagle Layer 155,156  
