@@ -1,4 +1,4 @@
-// Glboba defs for the 4 ulps
+// Global defs for the 4 ulps
 
 string BUILD_DATE = "11-JUN-2016";
 
