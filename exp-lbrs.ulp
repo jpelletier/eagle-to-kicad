@@ -5,21 +5,21 @@
           "UPDATE command to introduce the changes to schematic and/or board.<p>"
           "See Help for further details.<p>",
        "de:<b>Export von Bibliotheken aus einer Zeichnungsdatei.</b><p>\n"
-          "Damit können Sie individuelle Änderungen an Komponenten in einem Projekt machen. "
+          "Damit kÃ¶nnen Sie individuelle Ã„nderungen an Komponenten in einem Projekt machen. "
           "Laden Sie dazu Schaltplan, Board oder beides, verwenden Sie dieses ULP, um eine oder mehrere Bibliotheken "
-          "mit den verwendeten Komponenten zu generieren. Machen Sie Ihre Änderungen in der/den Bibliothek(en) "
-          "und verwenden Sie den UPDATE-Befehl, um die Änderungen in Schaltplan und/oder Board zu bringen.<p>"
-          "Siehe Hilfe für weitere Details.<p>"
+          "mit den verwendeten Komponenten zu generieren. Machen Sie Ihre Ã„nderungen in der/den Bibliothek(en) "
+          "und verwenden Sie den UPDATE-Befehl, um die Ã„nderungen in Schaltplan und/oder Board zu bringen.<p>"
+          "Siehe Hilfe fÃ¼r weitere Details.<p>"
           
 /**/              
 //-------------------------------------------------------------------------------- 
 // Change log.
 // Date:    Note:
-// 09-Oct-2015  Fix layer's for limted version of Eagle L. A.
-// 25-Aug-2015  Fix space in Path problem, for windows by adding ' ' L. A.
+// 09-Oct-2015  Fix layers for limited version of Eagle L. A.
+// 25-Aug-2015  Fix space in Path problem for windows by adding ' ' L. A.
 // 31-Jul-2015  Fix some spelling mistakes.  L. A.
-// 28-Jul-2015  Fix a number of problems where,  Pin and Pad's over lap, and add error reporting log file.
-// 13-Mar-2015  Add more help to info boxs.  L. A.
+// 28-Jul-2015  Fix a number of problems where Pin and Pads overlap, and add error reporting log file.
+// 13-Mar-2015  Add more help to info boxes.  L. A.
 // 10-Feb-2015  Change hooks to work the other conversion programs.  L. A.
 //  
 #require 6.0301
@@ -27,30 +27,30 @@
 //
 string Version = "6.6";
 
-int TEMP_HOLD_FOR_OVER_LAPPING_PIN = 19180;  //  Tempory of the sysmbole editor when we have over lapping pin's to deal with
-int TEMP_HOLD_FOR_OVER_LAPPING_SMD_PAD = 19180;  //  Tempory of the sysmbole editor when we have over lapping hole/smd pad's to deal with
+int TEMP_HOLD_FOR_OVERLAPPING_PIN = 19180;  //  Temporary of the symbol editor when we have overlapping pins to deal with
+int TEMP_HOLD_FOR_OVERLAPPING_SMD_PAD = 19180;  //  Temporary of the symbol editor when we have overlapping hole/smd pads to deal with
 
 
 
-string infoCombineLibNames  = "Combine all the seprate Eagle libs into one KiCad lib<br>"+
-                              "This make's the conversion preccess easy and faster.<br>"+
+string infoCombineLibNames  = "Combine all the separate Eagle libs into one KiCad lib<br>"+
+                              "This makes the conversion process easy and faster.<br>"+
                               "<b>But means that you lose tack of which parts<br>"+
                               "come from which Eagle lib</b><br>";
 
-string infoLibNameToSymbolPackageDevice = "When <i>Combining librarys</i> it's help to add the library name<br>"+
+string infoLibNameToSymbolPackageDevice = "When <i>Combining libraries</i> it helps to add the library name<br>"+
                                           "to Part/Device/Footprint to reduce the name conflict if more than<br>"+
-                                          "part has the same name in the diffrent librarys";
+                                          "part has the same name in the different libraries";
 
 // 
 //
 // Language:
 //----------
-// Please keep to alphabetic sorting for maintainability !
+// Please keep alphabetic sorting for maintainability !
 string Dictionary[] = {
   "en\v"
   "de\v",
   "Back\v"
-  "Zurück\v",
+  "ZurÃ¼ck\v",
   "Cancel\v"
   "Abbrechen\v",
   "Creation mode\v"
@@ -72,7 +72,7 @@ string Dictionary[] = {
   "Merge to one library, \v"
   "In eine Bibliothek integrieren, \v",
   "original library names as prefix for symbol, package and device names\v"
-  "Original-Bibliotheksnamen als Präfix für Symbol-, Package- und Devicenamen verwenden\v",
+  "Original-Bibliotheksnamen als PrÃ¤fix fÃ¼r Symbol-, Package- und Devicenamen verwenden\v",
   "Path\v"
   "Pfad\v",
   "Please start from schematic or board editor!\v"
@@ -80,7 +80,7 @@ string Dictionary[] = {
   "Start\v"
   "Start\v",
   "unchanged symbol, package and device names\v"
-  "Symbol-, Package- und Devicenamen unverändert\v"
+  "Symbol-, Package- und Devicenamen unverÃ¤ndert\v"
 };
 
 string DlgLang = language();
@@ -143,9 +143,9 @@ int    ConflictPartsCount = 0;
 string myULP_HOME = EAGLE_HOME + '/';
 
 char   ascii127[]       =   { 181,  196,  214,  220,  223, 0 }; // not allowed character 2010-05-12
-// www: In 8859-1 these chars are { � ,Ä ,Ö, Ü, ß } and therefore actually allowed as object names.
-//      Change this if requested ! What's also allowed but deprecated is { ä, ö, ü }. Should be replaced
-//      by { Ä, Ö, Ü }. All other chars allowed for file names are allwoed also for object names.
+// www: In 8859-1 these chars are { µ ,Ã„ ,Ã–, Ãœ, ÃŸ } and therefore actually allowed as object names.
+//      Change this if requested ! What's also allowed but deprecated is { Ã¤, Ã¶, Ã¼ }. Should be replaced
+//      by { Ã„, Ã–, Ãœ }. All other chars allowed for file names are allowed also for object names.
 //      Lower case is automatically converted to upper case (except the umlauts).
 string Newascii127[]    =   { "U", "AE", "OE", "UE", "SS", "" }; // change to allowed character
 
@@ -168,33 +168,33 @@ string HelpText[] = {
   "Der Bibliotheks-Export sammelt Devices und Packages eines Schaltplans oder Boards und speichert "
   "sie in eine oder mehrere Bibliotheken."
   "<p>"
-  "Standardmässig werden alle enthaltenen Bibliotheken mit ihrem Orignialnamen in den Pfad der Zeichnungsdatei(en) "
-  "exportiert. So können Sie Symbole und/oder Packages editieren und mit dem UPDATE-Befehl alle entsprechenden "
+  "StandardmÃ¤ssig werden alle enthaltenen Bibliotheken mit ihrem Orignialnamen in den Pfad der Zeichnungsdatei(en) "
+  "exportiert. So kÃ¶nnen Sie Symbole und/oder Packages editieren und mit dem UPDATE-Befehl alle entsprechenden "
   "Bauteile in Schaltplan und Board aktualisieren."
   "<p>"
-  "Alternativ können alle Objekte in eine einzige Bibliothek mit Schaltplan- bzw. Boardnamen integriert werden. "
-  "Sie können wählen, ob Sie die Namen der Original-Bibliotheken als Präfix für die Package-, Symbol- und Devicenamen verwenden "
-  "oder nicht. Diese Präfixe nicht zu verwenden kann zu Mehrdeutigkeit führen und wird daher nicht empfohlen."
+  "Alternativ kÃ¶nnen alle Objekte in eine einzige Bibliothek mit Schaltplan- bzw. Boardnamen integriert werden. "
+  "Sie kÃ¶nnen wÃ¤hlen, ob Sie die Namen der Original-Bibliotheken als PrÃ¤fix fÃ¼r die Package-, Symbol- und Devicenamen verwenden "
+  "oder nicht. Diese PrÃ¤fixe nicht zu verwenden kann zu Mehrdeutigkeit fÃ¼hren und wird daher nicht empfohlen."
   "<p>"
   "Der Export-Pfad kann mit 'Durchsuchen' eingestellt werden. "
-  "Wenn eines der Bibliotheken bereits existiert, werden Sie gefragt, ob die bestehende Datei gelöscht werden darf."
+  "Wenn eines der Bibliotheken bereits existiert, werden Sie gefragt, ob die bestehende Datei gelÃ¶scht werden darf."
 };
 
-int PinX[]; //  space for checking over lapping x/y
+int PinX[]; //  space for checking overlapping x/y
 int PinY[];
-string Pname[]; // Name of the overlape
+string Pname[]; // Name of the overlap
 int overLappingPinErrorCount = 0;
-int waring_count = 0;
+int warning_count = 0;
 int error_count = 0;
 
 string logfile;     // log file
 string logfileName;
 
 string checkFor_bad = "";
-string checkFor_badPostion = "";
+string checkFor_badPosition = "";
 
 //------------------------------------------------------
-// Replaces all occurrences of a charter in a string with a string
+// Replaces all occurrences of a character in a string with a string
 //------------------------------------------------------
 string charstr_replace(string search, string replace, string subject)
 {
@@ -217,11 +217,11 @@ string charstr_replace(string search, string replace, string subject)
   return subject;
 }
 
-// Check for Bad Charters
-// Return int count of bad charters.
+// Check for Bad Characters
+// Return int count of bad characters.
 // and set 
-// string checkFor_bad: list of bad charters"";
-// string checkFor_badPostion: postion of bad charter;
+// string checkFor_bad: list of bad characters"";
+// string checkFor_badPosition: position of bad character;
 //
 int checkForBadCharstr( string search, string subject)
 {
@@ -229,19 +229,19 @@ int checkForBadCharstr( string search, string subject)
   int pos = 0;
   int badcount = 0;
 
-  checkFor_badPostion = subject;
+  checkFor_badPosition = subject;
   checkFor_bad = "";
   
   // space fill string
   for( pos = 0; pos < strlen( subject ); pos++ )
-    checkFor_badPostion[pos] = ' ';
+    checkFor_badPosition[pos] = ' ';
   
   for( pos = 0; pos < strlen(search); pos++ )
   {
     lastpos = 0;
     while( (( lastpos = strchr( subject, search[ pos ], lastpos)) != -1 ))
     {
-      checkFor_badPostion[ lastpos ] = search[ pos ];
+      checkFor_badPosition[ lastpos ] = search[ pos ];
       checkFor_bad += search[ pos ];
       badcount++;
       if ( ++lastpos > strlen(subject))
@@ -259,17 +259,17 @@ int checkForBadCharstr( string search, string subject)
 // *******************************************
 //
 // Output a string to a file.
-// openOverWriteCrateAppendMode set's optin's
-// openOverWriteCrateAppendMode = 0,   Append to a existining file only, return's -2 if the file is not found.
-// openOverWriteCrateAppendMode = 1,   Append to a existining file or crate a new file if it dose exist.
-// openOverWriteCrateAppendMode = 2,   Over write a existining file or crate a new file if it dose exist.
+// openOverWriteCreateAppendMode sets options
+// openOverWriteCreateAppendMode = 0,   Append to a existing file only, return's -2 if the file is not found.
+// openOverWriteCreateAppendMode = 1,   Append to a existing file or create a new file if it does exist.
+// openOverWriteCreateAppendMode = 2,   Over write a existing file or create a new file if it does exist.
 // binaryText ='B' or 'b' for output binary mode
 //   binaryText ='T' or 't' for output binary text mode
-// return's -1 if input errror
+// returns -1 if input errror
 // or -2 if no file found
 // or output of fileerror,   which I have no idea what it will be,  just if 0,  then write was ok.
 //
-int outputStringToFile( string fileName, string outputString, char openOverWriteCrateAppendMode, char binaryText )
+int outputStringToFile( string fileName, string outputString, char openOverWriteCreateAppendMode, char binaryText )
 {
   string fa[];
   int n;
@@ -292,7 +292,7 @@ int outputStringToFile( string fileName, string outputString, char openOverWrite
       return -1;
   }
 
-  switch( openOverWriteCrateAppendMode )
+  switch( openOverWriteCreateAppendMode )
   {
     case 0:
       if( fileglob( fa, fileName ) == 0 )
@@ -310,7 +310,7 @@ int outputStringToFile( string fileName, string outputString, char openOverWrite
 
   }
 
-  // Out put the data to fileName  
+  // Output the data to fileName  
   output( fileName, mode )
   {
     
@@ -344,9 +344,9 @@ int check_overlap( UL_PIN P, int pincount )
 }
 
 //
-// Wright log file.
+// Write log file.
 //
-void wright_log_to_disk( string logdata )
+void write_log_to_disk( string logdata )
 {
   //  logfile = filesetext(EditName, "");
   logfileName = WorkPath + filesetext( EditName, "_conversion_log.txt");  
@@ -355,7 +355,7 @@ void wright_log_to_disk( string logdata )
 }
 
 
-// Wright comand file -----------
+// write command file -----------
 void show_save_script_file(string cm) {
   ScriptName = WorkPath+PureScriptName;
   output(ScriptName, "wtD") printf("%s", cm);
@@ -395,7 +395,7 @@ string replacenewline(string nl) {
 }
 
 // Da der ganze String in ' eingeschlossen wird,
-// müssen die Apostrophen verdoppelt werden.
+// mÃ¼ssen die Apostrophen verdoppelt werden.
 string addApostroph(string name) {  // 2012-03-23
   string t[];
   int cnt = strsplit(t, name, '\''); // check Apostroph
@@ -460,7 +460,7 @@ int exist_file(string FileName)
 }
 
 void CreateLBRdescription(string project_name) {
-  // !!! Wird nicht vorherige Description überschrieben ?
+  // !!! Wird nicht vorherige Description Ã¼berschrieben ?
   sprintf(h, "DESCRIPTION 'Generated from <b>%s</b><p>\\n\\\nby %s';\n", filename(project_name), filename(argv[0]));
   cmd += h;
   return;
@@ -604,9 +604,9 @@ void DrawContact(UL_CONTACT C) {
     //
      //     sprintf(h, "SMD %f %f -%d R%.1f %s '%s' (%f %f);\n", u2mic(C.smd.dx), u2mic(C.smd.dy), C.smd.roundness, C.smd.angle, ShapeFlag, addApostroph(C.smd.name), u2mic(C.smd.x), u2mic(C.smd.y));
 
-     sprintf(h, "SMD %f %f -%d R%.1f %s '%s' (%f %f);\n", u2mic(C.smd.dx), u2mic(C.smd.dy), C.smd.roundness, C.smd.angle, ShapeFlag, addApostroph(C.smd.name), u2mic( TEMP_HOLD_FOR_OVER_LAPPING_SMD_PAD ), u2mic( TEMP_HOLD_FOR_OVER_LAPPING_SMD_PAD ));
+     sprintf(h, "SMD %f %f -%d R%.1f %s '%s' (%f %f);\n", u2mic(C.smd.dx), u2mic(C.smd.dy), C.smd.roundness, C.smd.angle, ShapeFlag, addApostroph(C.smd.name), u2mic( TEMP_HOLD_FOR_OVERLAPPING_SMD_PAD ), u2mic( TEMP_HOLD_FOR_OVERLAPPING_SMD_PAD ));
      cmd += h;
-     sprintf(h, "move (%f %f)(%f %f);\n", u2mic( TEMP_HOLD_FOR_OVER_LAPPING_SMD_PAD ), u2mic( TEMP_HOLD_FOR_OVER_LAPPING_SMD_PAD ),  u2mic( C.smd.x ), u2mic( C.smd.y ));    
+     sprintf(h, "move (%f %f)(%f %f);\n", u2mic( TEMP_HOLD_FOR_OVERLAPPING_SMD_PAD ), u2mic( TEMP_HOLD_FOR_OVERLAPPING_SMD_PAD ),  u2mic( C.smd.x ), u2mic( C.smd.y ));    
      cmd += h;
   }
 }
@@ -713,21 +713,21 @@ int DrawPin(UL_PIN P, int printhead, int error, string symbol_name )
   if( error )
   {
     string xt;
-    sprintf(h, "Pin '%s' %s %s %s %s %s %d (%f %f);\n", addApostroph( P.name ), DIR, FUNC, LEN, ANGLE, VIS, P.swaplevel, u2mic( TEMP_HOLD_FOR_OVER_LAPPING_PIN ), u2mic( TEMP_HOLD_FOR_OVER_LAPPING_PIN ));    
+    sprintf(h, "Pin '%s' %s %s %s %s %s %d (%f %f);\n", addApostroph( P.name ), DIR, FUNC, LEN, ANGLE, VIS, P.swaplevel, u2mic( TEMP_HOLD_FOR_OVERLAPPING_PIN ), u2mic( TEMP_HOLD_FOR_OVERLAPPING_PIN ));    
     cmd += h;
-    sprintf(h, "move (%f %f)(%f %f);\n", u2mic( TEMP_HOLD_FOR_OVER_LAPPING_PIN ), u2mic( TEMP_HOLD_FOR_OVER_LAPPING_PIN ),  u2mic(P.x), u2mic(P.y));    
+    sprintf(h, "move (%f %f)(%f %f);\n", u2mic( TEMP_HOLD_FOR_OVERLAPPING_PIN ), u2mic( TEMP_HOLD_FOR_OVERLAPPING_PIN ),  u2mic(P.x), u2mic(P.y));    
     cmd += h;
     
     if( !printhead )
     {
-      sprintf(xt, "\nWARNING: Over lapping Pin(s) on SYMBOL:%s", symbol_name );
+      sprintf(xt, "\nWARNING: Overlapping Pin(s) on SYMBOL:%s", symbol_name );
       logfile += xt;    
     }
     sprintf(xt, "\n   Pin =%s", addApostroph( P.name ));
     logfile += xt;
     printhead = 1;
     return 1;
-    //    outputStringToFile( logfile, "\nWORNING OVER LAPPING PIN:    " + xt, 1, 't');
+    //    outputStringToFile( logfile, "\nWARNING OVERLAPPING PIN:    " + xt, 1, 't');
   }
   else
     sprintf(h, "Pin '%s' %s %s %s %s %s %d (%f %f);\n", addApostroph( P.name ), DIR, FUNC, LEN, ANGLE, VIS, P.swaplevel, u2mic(P.x), u2mic(P.y));
@@ -841,13 +841,13 @@ void DrawDevice(UL_DEVICESET D, UL_LIBRARY LBR) {
     if( result = checkForBadCharstr( "()", DV.name ))
     {
       error_count++;
-      sprintf( tmpS, "\n%s%s%s", "ERROR: package name:", pacname,"  Has Bad/illegal charter in it's package Alisa name!\n");
+      sprintf( tmpS, "\n%s%s%s", "ERROR: package name:", pacname,"  Has Bad/illegal character in it's package Alias name!\n");
       logfile += tmpS;
-      sprintf( tmpS, "\n%s%s", "   Package Alaise  Name:", DV.name);
+      sprintf( tmpS, "\n%s%s", "   Package Alias Name:", DV.name);
       logfile += tmpS;
-      sprintf( tmpS, "\n%s%s", "   Error Postion & Char:", checkFor_badPostion );
+      sprintf( tmpS, "\n%s%s", "   Error Position & Char:", checkFor_badPosition );
       logfile += tmpS;
-      sprintf( tmpS, "\n%s", "   Bad charter(s) have been replaced with  '_'  This MAY FIX OR, CAUSE MORE ERROR'S! Plese fix the Alias!\n");
+      sprintf( tmpS, "\n%s", "   Bad character(s) have been replaced with  '_'  This MAY FIX OR, CAUSE MORE ERRORS! Please fix the Alias!\n");
       logfile += tmpS;
       cmd += ("PACKAGE '" + addApostroph(pacname) + "' " + charstr_replace("()", "_", DV.name ) + ";\n"); // addApostroph here problematic !
     }
@@ -1197,7 +1197,7 @@ int Result = dlgDialog(TR("Export EAGLE libraries from drawing")) {
     //    }
 
     
-    dlgLabel( Status, 1);   // displays exection status
+    dlgLabel( Status, 1);   // displays execution status
     dlgHBoxLayout
     {
       dlgStretch(1);
@@ -1207,11 +1207,11 @@ int Result = dlgDialog(TR("Export EAGLE libraries from drawing")) {
 
         if( ( ConflictPartsCount > 0 ) && ( AddLibPrefix != 1 ))
         {
-          if( dlgMessageBox("!Warning there are Part's with have the same name's,  but from diffent libs" +
-                            " KICAD will reject part which have name!" +
+          if( dlgMessageBox("!Warning there are parts with the same name,  but from different libs" +
+                            " KICAD will reject part which have the same name!" +
                             " Please tick the Add library names as prefix to get around this problem" +
-                            " Or fix the part name in the lib refance"+
-                            " Cotinue with this,  Or Change to add libprefix ?", "&Continue", "Change" ) == 1 )
+                            " Or fix the part name in the lib reference"+
+                            " Continue with this,  Or Change to add libprefix ?", "&Continue", "Change" ) == 1 )
             AddLibPrefix = 1;
         }
 
@@ -1221,7 +1221,7 @@ int Result = dlgDialog(TR("Export EAGLE libraries from drawing")) {
         if( Merge > 0)
           make_one_lbr(); // one lib for all deives
         else
-          make_lbr();  //  septrate lib's for all device's
+          make_lbr();  //  separate libs for all devices
         show_save_script_file(cmd);
 
 
@@ -1229,7 +1229,7 @@ int Result = dlgDialog(TR("Export EAGLE libraries from drawing")) {
 
         if( overLappingPinErrorCount || error_count )
         {
-          //          wright_log_to_disk( );
+          //          write_log_to_disk( );
 
           if( overLappingPinErrorCount )
             dlgMessageBox( "<font color=\"purple\">There were OverLappingPinPad warnings<br>"+
@@ -1241,7 +1241,7 @@ int Result = dlgDialog(TR("Export EAGLE libraries from drawing")) {
         else
         {
           logfile += "\nOK: Eagle lib export from SCH/PCB OK";
-          //          wright_log_to_disk( logfile );
+          //          write_log_to_disk( logfile );
         }
         
         tmpS1 = cfgget( cfg_SCRIP_ULP );
