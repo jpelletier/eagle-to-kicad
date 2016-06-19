@@ -13,22 +13,22 @@
        
 /*
  * CHANGELOG================================================
- * 11-06-2016 Fix enableNetListLableFix lable not being using.
+ * 11-06-2016 Fix enableNetListLableFix label not being using.
  *            Thanks to https://github.com/pgroe  for this nice fix !
 
 
  * 12.02.2016  Disable display of KiCad footprint Field in schematic.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 08.02.2016  Fix over bar,  sch and lib ulp's now convert ! (eagle over bar marker)
+ * 08.02.2016  Fix over bar,  sch and lib ulps now convert ! (eagle over bar marker)
  *             ~ (KiCad's over bar marker )
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
  * 08.02.2016  Re-size Text in Lib parts better match eagle.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 08.02.2016  Fix up text export to kicad sch so dose not ghost the same text
- *             on the lib part, IE we only included text for Refance and Value in SCH
+ * 08.02.2016  Fix up text export to kicad sch so does not ghost the same text
+ *             on the lib part, i.e. we only included text for Reference and Value in SCH
  *             all other text is not put in as free text in sch.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
@@ -38,7 +38,7 @@
  * 16.10.2015: Ajust offset for sch postion, to fit sheet a bit better.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com" 
  *
- * 16.10.2015: Add check for name conflict on lib's package and symbol's,
+ * 16.10.2015: Add check for name conflict on lib's package and symbols,
  *             and enable add libname prefix if there is.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com" 
  *
@@ -46,7 +46,7 @@
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com" 
  *
  * 31.07.2015: Add warning about Eagle lib's Ghost parts
- *             Add check/warning for wrong path to converstion scripts.
+ *             Add check/warning for wrong path to conversion scripts.
  *             Fix some spelling stuff.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com" 
  *
@@ -60,40 +60,40 @@
  * 27.02.2015: Add user info doc's 
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com" 
  *
- * 16.02.2015: Add upper case conert to .cmp output of footprint name, fix bug where
- *             libname was being added to part Refance name
+ * 16.02.2015: Add upper case convert to .cmp output of footprint name, fix bug where
+ *             libname was being added to part Reference name
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com" 
  *
  * 10.02.2015: Start adding xxxxx.cmp output (part/foot print assignment)
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com" 
  *
- * 06.02.2015: Add "eagle_to_kicad_include.ulp" include file to help manage eale cfg settings bettewn
+ * 06.02.2015: Add "eagle_to_kicad_include.ulp" include file to help manage eagle cfg settings between
  *             ulp programs.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com" 
  *
- * 05.10.2014: Try adding support for more then one sheets, and fix for netlist problem at the same time
+ * 05.10.2014: Try adding support for more than one sheets, and fix for netlist problem at the same time
  *             This is tricky.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com" 
  *
- * 25.09.2014: Add version requited, to allows us to make 2 scripts.  One for 6.0+  and one for 5.0
+ * 25.09.2014: Add version required, to allow us to make 2 scripts.  One for 6.0+  and one for 5.0
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 06.09.2014: Move some code to main(), bit easy to understand!
+ * 06.09.2014: Move some code to main(), bit easier to understand!
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com" 
  *
- * 05.09.2014: Inc version too 1.1 
+ * 05.09.2014: Inc version to 1.1 
  *             Thanks  Lachlan   lachlanusa (at) gmail.com
  *
- * 05.09.2014: Fix's for part name placement, and part rotation.
+ * 05.09.2014: Fixes for part name placement, and part rotation.
  *             Thanks  Lachlan   lachlanusa (at) gmail.com
  *
- * 13.08.2014: Add more suport for muliti parts
+ * 13.08.2014: Add more support for multi parts
  *             Thanks  Lachlan   lachlanusa (at) gmail.com
  *
  * 08.08.2014: Bug fix, size conversion bug.
  *             Thanks  Lachlan   lachlanusa (at) gmail.com
  *
- * 03.08.2014: Bug fix, remove bank \n \r from output,  as KiCad wont dos not like bank line's in sch files
+ * 03.08.2014: Bug fix, remove bank \n \r from output,  as KiCad does not like bank lines in sch files
  *             Thanks  Lachlan   lachlanusa (at) gmail.com
  *
  * 10.07.2906: Bug fix, thank to Tom Morrison 
@@ -114,19 +114,19 @@ string Version = "1.9";
 string myname;
 int datetime;
 real fontSize_PartPreFix_Ajust = 1.0;
-string libNamePartNameSeperator = "_";      // This is part Name  so   libName "_" partName  is is DEF, and F0 filed in KiCad
-string libNamePartLibNameSeperator = "_";   // This is part Lib to foot print name  IE:   libName ":" footprintName  this is F2 fild in KiCad
+string libNamePartNameSeperator = "_";      // This is part Name so libName "_" partName is DEF, and F0 field in KiCad
+string libNamePartLibNameSeperator = "_";   // This is part Lib to foot print name  i.e.: libName ":" footprintName  this is F2 field in KiCad
 string libNameAliasSeperator = ":";   // This is separator for KiCad's lib Alias name prefix which is added to the foot print, when enabled
-int libNameAliasPrefixEnable = 0; // Add the KiCad tablas Alisa name to the footprint
+int libNameAliasPrefixEnable = 0; // Add the KiCad tables Alias name to the footprint
 
-string infoAddLibName       = "<b>Eagle SCH/PCB will not show any charters after \'@\' in pin names<br>"+
-                             "Checking this will delete any charters after and including the <b>'@'</b><br>so it wont show in KiCad</pre>";
+string infoAddLibName       = "<b>Eagle SCH/PCB will not show any characters after \'@\' in pin names<br>"+
+                             "Checking this will delete any characters after and including the <b>'@'</b><br>so it won't show in KiCad</pre>";
 
 string infoTargetDirectory  = "<h3>Set the target directory for all the converted Eagle files.</h3>"+
                              "<b>Note this directory should be a clean directory"+
                              "With out any other file's, as the contents may be<center><font color=\"red\">OVER WRITTEN WITHOUT WARNING!</b></center>";
 
-string infoHelp             = "This ULP is a converts from Eagle SCH/PCB to KiCad sch/PCB<br>"+
+string infoHelp             = "This ULP converts from Eagle SCH/PCB to KiCad sch/PCB<br>"+
                               "It consist of 3 different ULP's hack to work together<br>"+
                               " ";
 string infoULPdir           = "<b>Eagle ULP conversion script location</b>";
@@ -134,18 +134,18 @@ string infoULPdir           = "<b>Eagle ULP conversion script location</b>";
 string infoPartNameConflict = "Eagle allows duplicate part name's in SCH/PCB if they come from different lib's<br>"+
                               "<b>IE:</b><br><i><b> libfred<b></i>:74LS00:,<br>"+
                               "<i><b> libnerd<b></i>:74LS00,<br><br>"+
-                              "While KiCad dose not allow duplication's in part name's<br>"+
-                              "In most case's there is no conflict, but if there is a conflict.<br>"+
-                              "You have 2 options:<br><br> 1: Rename the part in ealge's LIB/SCH/PCB. <i>If you have access to them</i><br> 2: Tick this option <b><i>Adding lib name to Part Name</b></i><br><br>"+
-                              "Which allowing this program to add lib prefix to the part name. This also fix's the problem.<br>"+
-                              "<br><b><font color=\"purple\">Note 1: This program automatically check's for conflicts and set's the option if needed<br><br></b>"+
-                              "<b><font color=\"red\">Note 2: Eagle has some nasty bug's in there library management,  which is some case's there will be ghost parts in the lib's!<br>"+
-                              "<b>IE: parts which you don't use in your SCH but are still output from the lib-export stage of this program,  which will magically be used instead of the part you have designed with !<br>"+
-                              "The only way to get this problem, is to turn the <i>Adding lib name to Part Name: back on!" ;
+                              "While KiCad does not allow duplication's in part name's<br>"+
+                              "In most cases there is no conflict, but if there is a conflict.<br>"+
+                              "You have 2 options:<br><br> 1: Rename the part in eagle's LIB/SCH/PCB. <i>If you have access to them</i><br> 2: Tick this option <b><i>Adding lib name to Part Name</b></i><br><br>"+
+                              "Which allowing this program to add lib prefix to the part name. This also fixes the problem.<br>"+
+                              "<br><b><font color=\"purple\">Note 1: This program automatically checks for conflicts and sets the option if needed<br><br></b>"+
+                              "<b><font color=\"red\">Note 2: Eagle has some nasty bugs in their library management,  which in some cases there will be ghost parts in the libs!<br>"+
+                              "<b>i.e.: parts which you don't use in your SCH but are still output from the lib-export stage of this program,  which will magically be used instead of the part you have designed with !<br>"+
+                              "The only way to get this problem is to turn the <i>Adding lib name to Part Name: back on!" ;
 
-string infoCombineLibNames  = "Combine all the separate Eagle lib's into one KiCad lib<br>"+
-                              "This make's the conversion process easy and faster.<br>"+
-                              "<b>But means that you may lose tack of which parts<br>"+
+string infoCombineLibNames  = "Combine all the separate Eagle libs into one KiCad lib<br>"+
+                              "This makes the conversion process easy and faster.<br>"+
+                              "<b>But means that you may lose track of which parts<br>"+
                               "come from which Eagle lib</b><br>";
 
 string infoNetLableFix      = "<u><b><font color=\"red\">The problem:</font></b></u>"+
@@ -153,9 +153,9 @@ string infoNetLableFix      = "<u><b><font color=\"red\">The problem:</font></b>
                               " In Eagle SCH wire's can have net name, while KiCad wire's have<br>"
                               " no net label name."+
                               " You can assign a net label in KiCad, but it has to be exactly over the wire"+
-                              " if you move the wire, you lose the net-list assignment in KiCad!"+
+                              " if you move the wire, you lose the netlist assignment in KiCad!"+
                               "<br><b><u>This is very nasty, as you lose the net label connection!</b></u><br>"+
-                              " It get's even worse when you have multiple sheets and global labels!"+
+                              " It gets even worse when you have multiple sheets and global labels!"+
                               "<br><b><u><font color=\"green\">How We Fix This:</font></u></b><br>"+
                               " We add a net label to the junction of each wire!</br>"+
                               " <b><i>Said it was bad!</b></i><br>"+
@@ -163,14 +163,14 @@ string infoNetLableFix      = "<u><b><font color=\"red\">The problem:</font></b>
                               " GLOBAL, <i>(works on all sheets)</i><br>"+
                               " The Eagle script first check to see if the net label is only on the current sheet, or on"+
                               " multiple sheets and then assigns a local or global KiCad net label at the wire/part juction<br>"+
-                              " This fix's any problems with placement of net label name in Eagle.<br>"+
+                              " This fixes any problems with placement of net label name in Eagle.<br>"+
                               " And for KiCad, we have a option to set the net label name size, so it's not too much of a eyesore.<br>"+
-                              " While this solution is a real hack it's on the only way to get get around the net label placement problems"+
+                              " While this solution is a real hack it's the only way to get around the net label placement problems"+
                               " KiCad has";
 
-string infoExportLibsFromEagle = "Extract lib's from Eagle SCH/PCB for KiCad <i>lib module.</i><br>"+
+string infoExportLibsFromEagle = "Extract libs from Eagle SCH/PCB for KiCad <i>lib module.</i><br>"+
                                  "<b><i>NOTE:</b></i> If you <b><i><u>don't</b></i></u> use this option, you will need to find<br>"+
-                                 "the Eagle <i>.lbr(s)</i> library's files and convert those across<br>"+
+                                 "the Eagle <i>.lbr(s)</i> library files and convert those across<br>"+
                                  " one by one using the Eagle-lbr2kicad-1.0.ulp";
 
 string dummyKiCadPcb = "(kicad_pcb (version 4) (host pcbnew \"(2015-10-05 BZR 6247)-product\")\n"+
@@ -276,7 +276,7 @@ string dummyKiCadPcb = "(kicad_pcb (version 4) (host pcbnew \"(2015-10-05 BZR 62
     "    (uvia_drill 0.1)\n"+
     "  )\n"+
     "\n"+
-    "  (gr_text \"*** THIS IS THE DUMMY SAVE FILE ***\\nIF YOUR ARE READING THIS MESSAGE,\\nYOU HAVE NOT DONE A SAVE-AS IN PCBNEW\\nTO THIS FILE NAME,  WHEN IMPORTING A EAGLE PCB FILE TO A KICAD PCB FILE!!\\n\" (at 145.5166 92.7608) (layer F.SilkS)\n"+
+    "  (gr_text \"*** THIS IS THE DUMMY SAVE FILE ***\\nIF YOU'RE READING THIS MESSAGE,\\nYOU HAVE NOT DONE A SAVE-AS IN PCBNEW\\nTO THIS FILE NAME,  WHEN IMPORTING A EAGLE PCB FILE TO A KICAD PCB FILE!!\\n\" (at 145.5166 92.7608) (layer F.SilkS)\n"+
     "    (effects (font (size 7 4) (thickness 0.6)))\n"+
     "  )\n"+
     "\n"+
@@ -328,9 +328,9 @@ int g_transY = 0;         // Y-axis translation factor, depending on the sheet s
 
 // Default version of KiCad sch file
 int outPutVersion = 2;
-int outPutCombineFootPrints = 1;  // Output part Name's and foot prints which work with the combined footprint KiCad Library
-                                  //  Not this is very trick,  we have to conver the Eagle lib to KiKad lib, and output a conflict
-                                  //  list which this programe can use to do the part number tranlastion !
+int outPutCombineFootPrints = 1;  // Output part Name's and footprints which work with the combined footprint KiCad Library
+                                  //  Note this is very tricky,  we have to convert the Eagle lib to KiKad lib, and output a conflict
+                                  //  list which this program can use to do the part number translation !
 
 // arrays for holding net/wire info
 real netlistsX1[]; // Start X/Y
@@ -359,7 +359,7 @@ string outputPath = EAGLE_HOME + '/';
 string myULP_HOME = EAGLE_HOME + '/';
 
 string StmpS = "";
-string mulitiGateList[];
+string multiGateList[];
 int partGateCount;
 string libsUsedList[];
 string devLibsRefList[];
@@ -399,7 +399,7 @@ string polygons_message_FileName;
 string rootschname;
 
 //------------------------------------------------------
-//Return's the path of a path-filename.
+//Returns the path of a path-filename.
 //------------------------------------------------------
 string extract_path(string pathfilename)
 {
@@ -410,7 +410,7 @@ string extract_path(string pathfilename)
 }
 
 //------------------------------------------------------
-//Return's the file name path-filename.
+//Returns the file name path-filename.
 //------------------------------------------------------
 string extract_filename(string pathfilename)
 {
@@ -464,11 +464,11 @@ string str_replace(string search, string replace, string subject)
     return  xstr_replace( search, replace, subject);
 }
 //
-// Compair 2 strings,
+// Compare 2 strings,
 // Strings must be same size
-// Return's 0 for fail, or none zero for compaired good.
+// returns 0 for fail, or none zero for compared good.
 //
-int stringCompair( string st1, string st2 )
+int stringCompare( string st1, string st2 )
 {
   int i;
   int stL1 = strlen( st1 );
@@ -493,11 +493,11 @@ int stringCompair( string st1, string st2 )
   return i;
 }
 //--------------------------------------------------------------------------------
-// compairs string to first substring mulitiGateList[ partGateCount ]
-// return's index + 1  if found
+// compares string to first substring multiGateList[ partGateCount ]
+// returns index + 1  if found
 // or zero if not.
 //
-int compairStringToStringArray( string searchString )
+int compareStringToStringArray( string searchString )
 {
   int i;
   int j;
@@ -505,16 +505,16 @@ int compairStringToStringArray( string searchString )
   
   for( i = 0; i < partGateCount; i++ )
     {
-      if( strsplit( stemp, mulitiGateList[ i ], ' ' ) == 0 )
+      if( strsplit( stemp, multiGateList[ i ], ' ' ) == 0 )
           continue;
 
-      if( stringCompair( stemp[0], searchString ))
+      if( stringCompare( stemp[0], searchString ))
         return i + 1;
     }
   return 0;
 }
 //
-//replace new line charter with string '\n' as kicad can handel that, but not new line chareter
+//replace new line character with string '\n' as kicad can handle that, but not new line chareter
 //
 string stripLfCrToEscCRLF( string textString )
 {
@@ -562,7 +562,7 @@ string stripQutes( string source )
 }
 
 //------------------------------------------------------
-// Replaces all occurrences of a charter in a string with a string
+// Replaces all occurrences of a character in a string with a string
 //------------------------------------------------------
 string charstr_replace(string search, string replace, string subject)
 {
@@ -655,7 +655,7 @@ int array_find_poly_messagex( string search, int arraySize )
 
 //--------------------
 // check for existing file
-// Return's 1 if found
+// returns 1 if found
 int check_for_exist_file(string FileName) {
   string a[];
   int n = fileglob(a, FileName);
@@ -697,12 +697,12 @@ string angleToKiCadMatrix(int angle, int mirror )
 //
 // Output a string to a file.
 // openOverWriteCrateAppendMode set's optin's
-// openOverWriteCrateAppendMode = 0,   Append to a existining file only, return's -2 if the file is not found.
-// openOverWriteCrateAppendMode = 1,   Append to a existining file or crate a new file if it dose exist.
-// openOverWriteCrateAppendMode = 2,   Over write a existining file or crate a new file if it dose exist.
+// openOverWriteCrateAppendMode = 0,   Append to a existing file only, returns -2 if the file is not found.
+// openOverWriteCrateAppendMode = 1,   Append to a existing file or create a new file if it does exist.
+// openOverWriteCrateAppendMode = 2,   Over write a existing file or create a new file if it does exist.
 // binaryText ='B' or 'b' for output binary mode
 //   binaryText ='T' or 't' for output binary text mode
-// return's -1 if input errror
+// returns -1 if input errror
 // or -2 if no file found
 // or output of fileerror,   which I have no idea what it will be,  just if 0,  then write was ok.
 //
@@ -747,7 +747,7 @@ int outputStringToFile( string fileName, string outputString, char openOverWrite
 
   }
 
-  // Out put the data to fileName  
+  // Output the data to fileName  
   output( fileName, mode )
   {
     
@@ -968,8 +968,8 @@ int makeDevLibRefList( UL_SCHEMATIC SCH )
 
 //********
 // Work out placement
-// and sugest a size
-// Return's -1 if if can't fit in any size !
+// and suggest a size
+// returns -1 if it can't fit in any size !
 //
 string intToString( int value )
 {
@@ -983,8 +983,8 @@ string intToString( int value )
 
 //--------------------------------------------------------------------------------
 // Work out placement
-// and sugest a size
-// Return's -1 if if can't fit in any size !
+// and suggest a size
+// returns -1 if it can't fit in any size !
 //--------------------------------------------------------------------------------
 int calculateTranslations(UL_AREA area, int paperSizeSelect ) {
 	// given the area of the sheet
@@ -1091,7 +1091,7 @@ void outputCmpFile( string fileName, int xcount )
 
 
 //------------------------------------------------------
-// Out put .Project file for KiCad 
+// Output .Project file for KiCad 
 //------------------------------------------------------
 int outputCmpPro( string fileName, int xcount )
 {
@@ -1139,7 +1139,7 @@ int outputCmpPro( string fileName, int xcount )
 }
 
 //--------------------------------------------------------------------------------
-// Out put module table
+// Output module table
 //--------------------------------------------------------------------------------
 int output_fp_lib_table( string fileName, string schName )
 {
@@ -1853,13 +1853,13 @@ void writeTextLabels( UL_LABEL L )
        break;
    }
    printf("Text Label %d %d %d    %d   ~ 0\n", posX, -posY, orient, fontSize);
-   printf("%s\n", charstr_replace( "!", "~", textString )); // Swich over bar start end charters  
+   printf("%s\n", charstr_replace( "!", "~", textString )); // Switch over bar start end characters  
           //   printf("%s\n", textString);
 }
 
 //--------------------------------------------------------------------------------
 // Write NetName labe for KICAD pin, fix !
-// Note textAngle is change to flip it's postion to much pin..
+// Note textAngle is changed to flip its position to much pin..
 void writeTextNetLabel( string textString, real textAngle, int fontSize, int posX, int posY, int offset, int global  )
 {
    char   Xorient = 0;
@@ -1916,7 +1916,7 @@ void writeTextNetLabel( string textString, real textAngle, int fontSize, int pos
    else
      printf("Text Label %d %d %d    %d   ~ 0\n", posX, -posY, Xorient, fontSize);
 
-   printf("%s\n", charstr_replace( "!", "~", textString )); // Swich over bar start end charters  
+   printf("%s\n", charstr_replace( "!", "~", textString )); // Switch over bar start end characters  
    //   printf("%s\n", textString);
 }
 
@@ -1952,7 +1952,7 @@ void write_kicad_bus_segments( UL_SHEET SH )
 	 }
 
          
-         SEG.labels(L) // New version,  supost to be better ?
+         SEG.labels(L) // New version,  supposed to be better ?
          {
            writeTextLabels( L );
          }
@@ -1999,7 +1999,7 @@ void write_kicad_wire_segments( UL_SHEET SH )
         }
 	 
 
-         SEG.labels(L) // New version,  supost to be better ?
+         SEG.labels(L) // New version,  supposed to be better ?
          {
            writeTextLabels( L );
          }
@@ -2031,7 +2031,7 @@ void write_kicad_text_notes( UL_SHEET S )
       int    idx2        = 0;
       string newString = "";
 
-      //replace new line charter with string '\n' as kicad can handel that, but not new line chareter
+      //replace new line character with string '\n' as kicad can handle that, but not new line character
       newString =  stripLfCrToEscCRLF( textString );
 
       switch( textAngle )
@@ -2064,7 +2064,7 @@ void write_kicad_text_notes( UL_SHEET S )
       if( outPutVersion == 2 )
 	printf("Text Notes %d %d %d    %d   ~ %d\n", posX, -posY, orient, fontSize,  0 );
 
-      printf("%s\n", charstr_replace( "!", "~", newString )); // Change over bar charter! to kicad ~
+      printf("%s\n", charstr_replace( "!", "~", newString )); // Change over bar character! to kicad ~
       //      printf("%s\n", newString);
    } 
 }
@@ -2101,14 +2101,14 @@ void write_kicad_components( UL_SHEET S )
     {
       string libName = P.deviceset.library;
 
-      if(P.device.package)  // Do we have a package ?..   IF not ouput if in diffant way
+      if(P.device.package)  // Do we have a package ?..   IF not output it in different way
       {  // ******* Yes we have a package !
 
 	  //  	  printf("\nP.deviceset.name:%s, P.name:%s, P.device.package.name:%s\n", P.deviceset.name, P.name, P.device.package.name );
 
 
 	  string deviceName = P.device.name;
-	  string refanceName  = P.name;
+	  string referenceName  = P.name;
 	  int instanceCount = 0;
 	  int numberOfSubParts = 0;
 
@@ -2122,8 +2122,8 @@ void write_kicad_components( UL_SHEET S )
             cmpList[ cmpListSize++ ] = timehash + " " + P.name + " " + charstr_replace(",", "_", deviceName ) + " " + charstr_replace(",", "_", P.device.package.name );
 
 
-          if(refanceName == "")
-            refanceName= "NNN";
+          if(referenceName == "")
+            referenceName= "NNN";
          
 	  if( strlen(deviceName) < 1 ) // ????
             deviceName = "1uF";
@@ -2138,7 +2138,7 @@ void write_kicad_components( UL_SHEET S )
 	    }
 
 	  //	  printf( "$Comp\n" );
-	  //	  	  printf( "##L %s %s\n", deviceName, refanceName );
+	  //	  	  printf( "##L %s %s\n", deviceName, referenceName );
 	  //	  printf( "U %d %d %X\n", 1, 1, time() );
      
 	  P.instances(I)
@@ -2174,12 +2174,12 @@ void write_kicad_components( UL_SHEET S )
 
 	      printf( "$Comp\n" );
 	      if( addLibPrefix )
-                printf( "L %s %s\n", strupr( libName ) + libNamePartNameSeperator + charstr_replace( ",()/", "_", deviceName), refanceName );
-              //                printf( "L %s %s\n", strupr( libName ) + libNamePartNameSeperator + str_replace( ",", "_", deviceName), refanceName );              
+                printf( "L %s %s\n", strupr( libName ) + libNamePartNameSeperator + charstr_replace( ",()/", "_", deviceName), referenceName );
+              //                printf( "L %s %s\n", strupr( libName ) + libNamePartNameSeperator + str_replace( ",", "_", deviceName), referenceName );              
 	      else
-		printf( "L %s %s\n", charstr_replace( ",()/", "_", deviceName), refanceName );
-              //		printf( "L %s %s\n", str_replace( ",", "_", deviceName), refanceName );
-	      //	      printf( "L %s %s\n", deviceName, refanceName );
+		printf( "L %s %s\n", charstr_replace( ",()/", "_", deviceName), referenceName );
+              //		printf( "L %s %s\n", str_replace( ",", "_", deviceName), referenceName );
+	      //	      printf( "L %s %s\n", deviceName, referenceName );
 	      //	      printf( "U %d %d %X\n", 1, 1, time() );
 	      //	      printf( "U %d %d %X\n", instanceCount++, 1, time()  );
 
@@ -2188,25 +2188,25 @@ void write_kicad_components( UL_SHEET S )
               
               instanceCount = 1;              
               int j;
-              // look for matching mulit gate part
+              // look for matching multi gate part
               //              if( numberOfSubParts > 1 )
-                if( j = compairStringToStringArray( deviceName )) // Is this a multi gate part ?
+                if( j = compareStringToStringArray( deviceName )) // Is this a multi gate part ?
                 {  // Yes..
                   int k,a;
                   string tmpSA[];
                   
                   j--;  // Ajust J
                   
-                  k = strsplit( tmpSA, mulitiGateList[ j ], ' ' ); // Make up target search array.
+                  k = strsplit( tmpSA, multiGateList[ j ], ' ' ); // Make up target search array.
 
                   //                  for( int nn = 0; nn < k; nn++ )
                   //                    printf("\n##### %s", tmpSA[nn] );
 
 
                   
-                  for( a = 2; a < k; )  // Ok search for gate name in that array then use the idex, as part index for KICAD 
+                  for( a = 2; a < k; )  // Ok search for gate name in that array then use the index, as part index for KICAD 
                   {
-                    if( stringCompair( tmpSA[ a ], I.gate.name )  )
+                    if( stringCompare( tmpSA[ a ], I.gate.name )  )
                     {
                       instanceCount = ( a - 2 );
                       break;
@@ -2225,7 +2225,7 @@ void write_kicad_components( UL_SHEET S )
 	      int IgateSymolTextCount = 0;
 
 
-	      strF0F1F2[ 0 ] = refanceName;
+	      strF0F1F2[ 0 ] = referenceName;
 	      strF0F1F2[ 1 ] = I.value;
  	      strF0F1F2[ 2 ] = P.device.package.name;
 
@@ -2295,7 +2295,7 @@ void write_kicad_components( UL_SHEET S )
                                 int i;
 
                                 i = strsplit( tmpSA, strItextOutPut[ ct1 ], ' ');    // Split out put
-                                tmpSA[ 0 ] = "\"" + refanceName + "\"";  // Over write refance
+                                tmpSA[ 0 ] = "\"" + referenceName + "\"";  // Over write refance
                                 printf("F %d %s", ct, strjoin( tmpSA, ' ' ));    // Print out hacked F0 refance
                               }
                               else
@@ -2355,7 +2355,7 @@ void write_kicad_components( UL_SHEET S )
                                 int i;
 
                                 i = strsplit( tmpSA, IgateSymTextOutPut[ ct1 ], ' ');    // Split out put
-                                tmpSA[ 0 ] = "\"" + refanceName + "\"";  // Over write refance
+                                tmpSA[ 0 ] = "\"" + referenceName + "\"";  // Over write refance
                                 printf("F %d %s", ct,  strjoin( tmpSA, ' ' ));    // Print out hacked F0 refance
                               }
                               else
@@ -2431,7 +2431,7 @@ void write_kicad_components( UL_SHEET S )
 		    
 		  //		}
 
-	      // Out put smashed text
+	      // Output smashed text
 	      /* ct = 3; */
               /* for( int ct1 = 0; ct1 < ItextCount; ct1++ )                 */
               /* { */
@@ -2442,7 +2442,7 @@ void write_kicad_components( UL_SHEET S )
 	      /*       } */
 	      /*     ct++; */
               /* } */
-	      /* // Out put none smashed text */
+	      /* // Output none smashed text */
 	      /* for( ct1 = 0; ct1 < IgateSymolTextCount && ct1 < 3; ct1++ )  // Only output Name and Value,  other text is in Lib sym */
               /*   //	      for( ct1 = 0; ct1 < IgateSymolTextCount; ct1++ ) */
 	      /*   { */
@@ -2479,7 +2479,7 @@ void write_kicad_components( UL_SHEET S )
 
 
 	  string deviceName = P.device.name;
-	  string refanceName  = P.name;
+	  string referenceName  = P.name;
 	  int instanceCount = 1;
 	  int numberOfSubParts = 0;
 
@@ -2488,8 +2488,8 @@ void write_kicad_components( UL_SHEET S )
 	      numberOfSubParts++;
 	    }
 
-	  if(refanceName == "")
-            refanceName= "NNN";
+	  if(referenceName == "")
+            referenceName= "NNN";
          
 	  if( strlen(deviceName) < 1 ) // ????
             deviceName = "1uF";
@@ -2503,7 +2503,7 @@ void write_kicad_components( UL_SHEET S )
 	    }
 
 	  //	  printf( "$Comp\n" );
-	  //	  printf( "L %s %s\n", deviceName, refanceName );
+	  //	  printf( "L %s %s\n", deviceName, referenceName );
 	  //	  printf( "U %d %d %X\n", 1, 1, time() );
      
 	  P.instances(I)   
@@ -2535,13 +2535,13 @@ void write_kicad_components( UL_SHEET S )
 
 	      printf( "$Comp\n" );
 	      if( addLibPrefix )
-		printf( "L %s %s\n", strupr( libName ) + libNamePartNameSeperator + charstr_replace( ",()/", "_", deviceName), "#" + refanceName );
-              //              printf( "L %s %s\n", strupr( libName ) + libNamePartNameSeperator + str_replace( ",", "_", deviceName), "#" + refanceName );
+		printf( "L %s %s\n", strupr( libName ) + libNamePartNameSeperator + charstr_replace( ",()/", "_", deviceName), "#" + referenceName );
+              //              printf( "L %s %s\n", strupr( libName ) + libNamePartNameSeperator + str_replace( ",", "_", deviceName), "#" + referenceName );
 	      else
-		printf( "L %s %s\n", charstr_replace( ",()/", "_", deviceName), "#" + refanceName );
-              //              printf( "L %s %s\n", str_replace( ",", "_", deviceName), "#" + refanceName );              
+		printf( "L %s %s\n", charstr_replace( ",()/", "_", deviceName), "#" + referenceName );
+              //              printf( "L %s %s\n", str_replace( ",", "_", deviceName), "#" + referenceName );              
 
-	      //	      printf( "L %s %s\n", deviceName, refanceName );
+	      //	      printf( "L %s %s\n", deviceName, referenceName );
 	      //	      printf( "U %d %d %X\n", 1, 1, time() );
 	      //	      printf( "U %d %d %X\n", instanceCount++, 1, time()  );
 	      printf( "U %d %d %X\n", instanceCount, 1, getCurrentTimeHack() );
@@ -2551,11 +2551,11 @@ void write_kicad_components( UL_SHEET S )
 	      printf( "P %d %d\n", posX, posY );
 
 	      // Smash text section, note only the >NAME and >VALUE can be smashed !
-	      // if >NAME and >VALUE are not smashed, they wont apear here.
+	      // if >NAME and >VALUE are not smashed, they won't appear here.
 	      // But in  I.gate.symbol.texts(T) section, Also note that depending on weather the 
-	      // >NAME and/or >VALUE have been changed/deleted then added back in the Eagle lib,  and the sch is update from
-	      // that Eagle lib's, the >NAME and/or >VALUE could be in any order in I.gate.symbol.texts(T)
-	      // section's !! how brain dead is that.. !!
+	      // >NAME and/or >VALUE have been changed/deleted then added back in the Eagle lib,  and the sch is updated from
+	      // that Eagle lib, the >NAME and/or >VALUE could be in any order in I.gate.symbol.texts(T)
+	      // section !! how brain dead is that.. !!
               count = 0;
               string prefixToValue = "";
 
@@ -2564,8 +2564,8 @@ void write_kicad_components( UL_SHEET S )
 		{   
                   if( count == 0 )
                   {
-                    prefixToValue = "#";  // Mark F 0 as virtule part
-                    printf("F %d %s", count,  writeInstanceText( T, 0, posX, -posY, partAngle, partMirror, prefixToValue, refanceName ));
+                    prefixToValue = "#";  // Mark F 0 as virtual part
+                    printf("F %d %s", count,  writeInstanceText( T, 0, posX, -posY, partAngle, partMirror, prefixToValue, referenceName ));
                     printf("F %d %s", count + 1,  writeInstanceText( T, 0, posX, -posY, partAngle, partMirror, "", "" ));
 
                     printf("F %d \"\" H %d %d 60 0001 C CNN\n", count+2, posX, -posY );
@@ -2586,9 +2586,9 @@ void write_kicad_components( UL_SHEET S )
 		{
                   if( count == 0 )
                   {
-                    prefixToValue ="#";  // Mark F 0 as virtule part
-                    printf("F %d %s", count,  writeInstanceText( T, 0, posX, -posY, partAngle, partMirror, prefixToValue, refanceName  ));
-                    //                    printf("F %d %s", count,  writeInstanceText( T, 0, posX, -posY, partAngle, partMirror, prefixToValue, "\"" + refanceName + "\"" ));                    
+                    prefixToValue ="#";  // Mark F 0 as virtual part
+                    printf("F %d %s", count,  writeInstanceText( T, 0, posX, -posY, partAngle, partMirror, prefixToValue, referenceName  ));
+                    //                    printf("F %d %s", count,  writeInstanceText( T, 0, posX, -posY, partAngle, partMirror, prefixToValue, "\"" + referenceName + "\"" ));                    
                     printf("F %d %s", count + 1,  writeInstanceText( T, 0, posX, -posY, partAngle, partMirror, "", "" ));
 
                     printf("F %d \"\" H %d %d 60 0001 C CNN\n", count+2, posX, -posY );
@@ -2699,7 +2699,7 @@ void write_kicad_header( UL_SCHEMATIC SCH, int current_sheet, int number_of_shee
    printf("Comment4 \"%s\"\n", g_comment4 );
    printf("$EndDescr\n");
 
-   // Out put root sch for mulit sheet schematic ?
+   // Output root sch for multi sheet schematic ?
    if( current_sheet == 0 && number_of_sheets > 1 ) 
      {
        int sc = 1;
@@ -2750,7 +2750,7 @@ void write_kicad_netNames( UL_SHEET SH, int current_sheet )
     else     // check to see if there was a polygon with the same net name
       if( array_find_poly_messagex( N.name, polygons_linesCt ))
         globalable = 1; 
-        //****** Force globalable for quick fix to fill's net name problem. *******//
+        //****** Force globalable for quick fix to fill net name problem. *******//
 
     
     //    N.pinrefs(R)
@@ -2774,7 +2774,7 @@ void write_kicad_netNames( UL_SHEET SH, int current_sheet )
       
       S.pinrefs(R)
       {
-        if( R.instance.sheet != current_sheet )  // out put netNames for the current set only !
+        if( R.instance.sheet != current_sheet )  // output netNames for the current set only !
           continue;
 
         //      printf("Net:%s SHEET=:%d Pin=X:%f Pin=Y:%f  angle=:%f mirrored=:%d\n", N.name, PX.instance.sheet,  real(PX.pin.x)/real(320000), real(PX.pin.y)/real(320000), PX.instance.angle, PX.instance.mirror );
@@ -2831,9 +2831,9 @@ void write_kicad_schematics( string fileName, int current_sheet, int number_of_s
             if( gateCount == 1 )  // if only one gate don't add to list
               continue;
 
-            if( compairStringToStringArray( P.device.name ))   // Do we have in list aready ?
+            if( compareStringToStringArray( P.device.name ))   // Do we have in list aready ?
             {
-              continue;  //  Yes.. so dont add it again.
+              continue;  //  Yes.. so don't add it again.
             }
             string gateNamelist;
             P.deviceset.gates(G)  // Make up gate list
@@ -2842,7 +2842,7 @@ void write_kicad_schematics( string fileName, int current_sheet, int number_of_s
             }
 
             // Add to main list
-            sprintf( mulitiGateList[ partGateCount ], "%s %d %s", P.device.name, gateCount, gateNamelist );
+            sprintf( multiGateList[ partGateCount ], "%s %d %s", P.device.name, gateCount, gateNamelist );
 
             // Debug
             //            printf("\n#XXXXX: %s %d %s", P.device.name, gateCount, gateNamelist );            
@@ -2863,7 +2863,7 @@ void write_kicad_schematics( string fileName, int current_sheet, int number_of_s
 
             */
             partGateCount++;
-            //            printf("\n# %s partGateCount=%d", mulitiGateList[ partGateCount - 1 ], partGateCount );
+            //            printf("\n# %s partGateCount=%d", multiGateList[ partGateCount - 1 ], partGateCount );
           }
         }
         //        printf("\n");
@@ -2908,14 +2908,14 @@ void write_kicad_schematics( string fileName, int current_sheet, int number_of_s
                     libsUsed += LIB.name + "\n";
 		  }	
 	      }
-            // Make globle netlist names table
+            // Make global netlist names table
             SCH.nets(N)
             {
               int tmp = 0;
 
               N.pinrefs(PX)
               {
-                if( tmp == 0 ) // first time thou ?
+                if( tmp == 0 ) // first time through ?
                   tmp = PX.instance.sheet;
                 
                 if( PX.instance.sheet != tmp )
@@ -3064,7 +3064,7 @@ void openSchematicPath( string startPath, int sheetcount )
 
 //---------------------------------------------
 // returns 1 for retry
-// -1 for cancal
+// -1 for cancel
 //
 int result;
 int space = 10;
@@ -3138,7 +3138,7 @@ int mainDialog( string titleString, int sheetcount, string schName )
                   if( strlen(xs) )
                     tmpS10 = myULP_HOME = ( xs + '/');
                 }
-                    //                { tmpS10 = myULP_HOME = dlgDirectory("Select Targget directory", "C:\\") + '/'; rs = 1; dlgAccept(); };
+                    //                { tmpS10 = myULP_HOME = dlgDirectory("Select Target directory", "C:\\") + '/'; rs = 1; dlgAccept(); };
                 dlgPushButton("Info") { if (dlgMessageBox( infoULPdir, "Ok") == 0); };
                 dlgStretch(0);
 
@@ -3154,7 +3154,7 @@ int mainDialog( string titleString, int sheetcount, string schName )
               {
                 dlgStretch(0);
                 dlgSpacing(space);
-                dlgLabel("Target Dirctory For KiCAD files");
+                dlgLabel("Target Directory For KiCAD files");
                 tmpSX = cfgget( cfg_TARGET_DIR, outputPath );
 
                 if( strlen(tmpSX ) )
@@ -3164,18 +3164,18 @@ int mainDialog( string titleString, int sheetcount, string schName )
                 dlgCheckBox("Save as default", saveAsDefault );
                 dlgPushButton("Edit"){
                   string xs;int it;
-                  xs = dlgDirectory("Select Targget directory", "C:\\");
+                  xs = dlgDirectory("Select Target directory", "C:\\");
                   if( strlen(xs) )
                     outputPath = xs + '/';
                 }
 
-                //                ( outputPath = dlgDirectory("Select Targget directory", "C:\\") + '/' );
+                //                ( outputPath = dlgDirectory("Select Target directory", "C:\\") + '/' );
                 dlgPushButton("Info") { if (dlgMessageBox( infoTargetDirectory, "Ok") == 0); };
                 dlgStretch(0);
               }
           
           
-              if( sheetcount > 1 ) // more then one sheet ?
+              if( sheetcount > 1 ) // more than one sheet ?
                 sheetcount++; // Then add master sheet.
           
               for( int i = 0; i < sheetcount; i++ )
@@ -3225,7 +3225,7 @@ int mainDialog( string titleString, int sheetcount, string schName )
                 else
                 {
                   addLibPrefix = 0;
-                  dlgCheckBox("", addLibPrefix ); dlgLabel("<nobr><font color=\"green\"><b>Adding lib name to Part Name:</font><font color=\"purple\"> <b>MAY NOT BE REQIRED</b>,But Click on <b><i>Info</i></b> for details on some nasty surprises!</b></font></nobr>"); dlgStretch(0);
+                  dlgCheckBox("", addLibPrefix ); dlgLabel("<nobr><font color=\"green\"><b>Adding lib name to Part Name:</font><font color=\"purple\"> <b>MAY NOT BE REQUIRED</b>,But Click on <b><i>Info</i></b> for details on some nasty surprises!</b></font></nobr>"); dlgStretch(0);
                   dlgSpacing(2); dlgPushButton("Info") { if (dlgMessageBox( infoPartNameConflict, "Ok") == 0); } dlgStretch(10); dlgSpacing(20);
                 }
               }
@@ -3348,15 +3348,15 @@ int mainDialog( string titleString, int sheetcount, string schName )
               {
                 //          string Colors[] = { "red\tThe color RED\tConverted", "green\tThe color GREEN", "blue\tThe color BLUE" };
                 int Selected = 0; // 
-                dlgListView("DEVICE\tLIB\tREFANCE\tCONFLICT'S WITH\tDEVICE\tLIB\tREFANCE>", conflictPartsLibsList, Selected) dlgMessageBox("More info "); 
+                dlgListView("DEVICE\tLIB\tREFERENCE\tCONFLICTS WITH\tDEVICE\tLIB\tREFERENCE>", conflictPartsLibsList, Selected) dlgMessageBox("More info "); 
           
               }
             }
             else
             {
-              dlgTabPage("THERE ARE NO CONFLICTING PART'S-LIB'S") 
+              dlgTabPage("THERE ARE NO CONFLICTING PARTS-LIBS") 
               {
-                dlgLabel("<H1>THERE ARE NO CONFLICTING PART'S-LIB'S</H1>");
+                dlgLabel("<H1>THERE ARE NO CONFLICTING PARTS-LIBS</H1>");
               }
             }
 
@@ -3364,7 +3364,7 @@ int mainDialog( string titleString, int sheetcount, string schName )
             dlgTabPage("Eagle LIBS Used") 
             {
               int Selected = 0; // 
-              dlgListView("LIB\tConversion Compelete\tDate of Conversion", libsUsedList, Selected) dlgMessageBox("More info "); 
+              dlgListView("LIB\tConversion Complete\tDate of Conversion", libsUsedList, Selected) dlgMessageBox("More info "); 
             }
 
 
@@ -3486,7 +3486,7 @@ int main()
       result = mainDialog( titleStr, totalSheets, filesetext( filename(SCH.name), "") );
           
       if( combineLibs ) // Set combineLibsName option ?
-        cfgset( cfg_CombinedLrbFileName, combineLibsName );  // yes and save for the next programe
+        cfgset( cfg_CombinedLrbFileName, combineLibsName );  // yes and save for the next program
       else
         cfgset( cfg_CombinedLrbFileName, "" );   // No so just set a null string
     }  // schematic(SCH) 
@@ -3556,7 +3556,7 @@ int main()
       netlistfile = filesetext( filename(SCH.name), ".net");
 
       outputCmpFile( outputPath + filesetext( filename(SCH.name), ".cmp"), cmpListSize );  // output  .cmp file
-      outputCmpPro( outputPath + filesetext( filename(SCH.name), ".pro"), 0 );   //  Out put .pro project file
+      outputCmpPro( outputPath + filesetext( filename(SCH.name), ".pro"), 0 );   //  Output .pro project file
       output_fp_lib_table( outputPath + "fp-lib-table", SCH.name );   //  Out module ft lib tables
     }
     
@@ -3598,9 +3598,9 @@ int main()
       
     /*
     dlgMessageBox( warnings +
-                    "You have 2 way's to go, to commplet the convesion to KiCad<br>" +
+                    "You have 2 ways to go to complete the conversion to KiCad<br>" +
                     "<blockquote> (1) simple:<br>Run extractEagleLibsFromSCH<br>"+
-                    "&nbsp;&nbsp;This is also the only option you have if, you dont<br>" +
+                    "&nbsp;&nbsp;This is also the only option you have if you don't<br>" +
                     "&nbsp;&nbsp;have the Eagle lbr files<br>"+
                     "&nbsp;&nbsp;if you have the Eagle extract the libs</blockquote>" + "  " +
                     cfgget( cfg_conflictPartsLibsListsize ) + " " +
@@ -3632,7 +3632,7 @@ int main()
     output(logfileName, "at") printf("%s", logfile);
 
     // check to see if we have a pcb ready,
-    // if we dont make up,  for the save as from pcbnew, just make's things bit simpler
+    // if we don't, make up one for saving, as from pcbnew. Just makes things a bit simpler
     // 
     string pcbfilename;
     pcbfilename = filesetext( outputPath + rootschname, ".kicad_pcb");
