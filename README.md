@@ -44,13 +44,13 @@
  
  **WARNING Always backup your Eagle SCH/PCB files before running this program!**  
  
-* **1:** Start your Eagle program *(Make sure you're using  version 6.xx of Eagle)*
+* **1:** Start your Eagle program *(Make sure you're using version 6.xx of Eagle)*
 
 * **2:** Open the eagle SCH/PCB file you wish to convert. Make sure the eagle SCH and PCB files are both correct and pass all ERC/DRC checks in Eagle.  
 
 * **3:** Next, open the top left hand **File menu** and select **Run ULP**  
 
-* **4:** A file requester window will open. Select, find or type the location of the ***renumber-sheet.ulp*** ULP you downloaded from this website. We use this script to make sure all part prefix are ending in a number IE: R0, X1 etc. As KiCad will ask to renumber any prefix which does not end in a number. *(It may do this any way, but don't worry it wont change any Prefix which have already been numbered unless you tell it to!)*  Keeping prefix consistent from SCH to PCB will allow netlist forward and back annotation to work in KiCad. Select **OK** *(this will run the script)*.  When this completes, all references without a number should have a number appended to them. Note: This number will start from the largest reference number on the SCH/PCB.
+* **4:** A file requester window will open. Select, find or type the location of the ***renumber-sheet.ulp*** ULP you downloaded from this website. We use this script to make sure all part prefix are ending in a number i.e.: R0, X1 etc. As KiCad will ask to renumber any prefix which does not end in a number. *(It may do this any way, but don't worry it won't change any Prefix which have already been numbered unless you tell it to!)*  Keeping prefix consistent from SCH to PCB will allow netlist forward and back annotation to work in KiCad. Select **OK** *(this will run the script)*.  When this completes, all references without a number should have a number appended to them. Note: This number will start from the largest reference number on the SCH/PCB.
 
 * **5:** Next stage will run automatically, ***fix_via_hack.ulp*** This will check for free unconnected VIAs and convert them to PADs,  this is very much a hack, as it change's the Eagle SCH/PCB files. The changed files are saved in ***targetdir/modified_eagle_files/***  
 There are 2 options: Document the VIAs/PADs by putting a ***>*** and net label name on the VIA/PAD on **layer 51** for Eagle, and **Dwgs.User** for KiCad. Second option is to Not convert the VIAs to PADs.  
