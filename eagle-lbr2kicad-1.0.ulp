@@ -18,16 +18,16 @@
  * 07.05.2016  Fix device with no package which has more than 1 pin
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 03.05.2016  Fix F1 feild to match Def feild,  IE remove any illgial charters.
+ * 03.05.2016  Fix F1 field to match Def field,  i.e. remove any illegal characters.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 03.05.2016  Fix layers in Text string's so will place correctly on the layers.
+ * 03.05.2016  Fix layers in Text strings so will be placed correctly on the layers.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 29.04.2016  Fix loging file name, and add user option to select loging directory.
+ * 29.04.2016  Fix logging file name, and add user option to select logging directory.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 08.02.2016  Change Default size of F0 and F1, Refance/value to 45
+ * 08.02.2016  Change Default size of F0 and F1, Reference/value to 45
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
  * 08.02.2016  Fix over bar,  on pin labels, this changes Eagle ! to KiCad ~
@@ -37,27 +37,27 @@
  *		Add spacing to make window wider,  1000px, for better report display
  *              Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 12.10.2015:  Check for pagage before printing reporting on missing prefix.
+ * 12.10.2015:  Check for package before printing reporting on missing prefix.
  *
- * 09.10.2015:  Add missing prefix report Dilog
+ * 09.10.2015:  Add missing prefix report Dialog
  *
- * 27.08.2015:  Fix Power systembal to correct for KiCad Power fills, change power supllie to opersit of Eagle.
+ * 27.08.2015:  Fix Power symbol to correct for KiCad Power fills, change power supply to opersit of Eagle.
  *              Change pin to hide when power. supply system.
  *
- * 19.07.2015:  Fix / slash in Ealge's lib and part name's and device name
- *              Add faster string replace/subsute sub "string charstr_replace(string search, string replace, string subject)"
+ * 19.07.2015:  Fix / slash in Eagle's lib and part name's and device name
+ *              Add faster string replace/substitute sub "string charstr_replace(string search, string replace, string subject)"
  *              Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
  * 10.02.2015: Fix add lib prefix to footprint name
  *              Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 03.02.2015: Fix Alais name, and inc version.
+ * 03.02.2015: Fix Alias name, and inc version.
  *              Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 25.09.2014: Add version reqired, to alows us to make 2 scripts.  One for 6.0+  and one for 5.0
+ * 25.09.2014: Add version required, to allow us to make 2 scripts.  One for 6.0+  and one for 5.0
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 06.09.2014: Fix device alaias, to put in zero size string in * place holder when
+ * 06.09.2014: Fix device alias, to put in zero size string in * place holder when
  *             '' is found in part Tecknowage/alias name.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
@@ -67,29 +67,29 @@
  * 05.09.2014: Inc version number to 1.1
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 05.09.2014: Try a number of fix's for part name, and ALISA list,  to work better with eagle2kicad_sch.ulp
- *             Note there are many problems here. See as badly name eagle lib's will make for lot's of devices name collisions!
+ * 05.09.2014: Try a number of fixes for part name, and ALIAS list,  to work better with eagle2kicad_sch.ulp
+ *             Note there are many problems here. See as badly nameed eagle libs will make lots of devices name collisions!
  *             Which will make KiCad stop loading the lib/mod!
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 26.07.2014: Fix >NAME and >VALUE in in module, so eagle text is not lost, or confused with module prefix/value
+ * 26.07.2014: Fix >NAME and >VALUE in module, so eagle text is not lost, or confused with module prefix/value
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 26.07.2014: Fix text width in module, so module text use's eagles text width.
+ * 26.07.2014: Fix text width in module, so module text uses eagles text width.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
  * 26.07.2014: Fix Squ Pad size 0 problem in module
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 14.07.2014: Add option allows combining of device's into one KiCad lib part if the pin name/number match exactly.
+ * 14.07.2014: Add option to allows combining of devices into one KiCad lib part if the pin name/number match exactly.
  *             Note: Pin number/name IS the deciding factor! NOT package type or package pin count.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 12.07.2014: Add option to allows adding $PACKAGE list to KiCad where parts Shari'a common pin refances.
+ * 12.07.2014: Add option to allow adding $PACKAGE list to KiCad where parts share common pin references.
  *             Thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 21.06.2014: Fix bug where, >NAME and >VALUE  were getting past thou from eage to kicad libs
- * 	       because there were not in upper case.
+ * 21.06.2014: Fix bug where >NAME and >VALUE  were getting past through from eagle to kicad libs
+ * 	       because they were not in upper case.
  *	       thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
  * 20.06.2014: Add option to Remove Text after @, this works bit like the hide after @ in Eagle SCH
@@ -100,8 +100,8 @@
  *	       found,  but returned the replacement string !!
  *	       thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
- * 12.06.2014: Fix \r \n in value import,  which eagle allows but KiCAD dos not like.
- * 	       also remove any other charters which are not printable
+ * 12.06.2014: Fix \r \n in value import,  which eagle allows but KiCAD does not like.
+ * 	       also remove any other characters which are not printable
  *	       thanks to: Lachlan  "lachlanusa (at) gmail.com"
  *
  * 14.02.2014: - Fix "Multiple contacts on pin, use contacts() instead" error in
@@ -127,11 +127,11 @@
  * 17.07.2006: The positions of the name and the prefix are fixed for multi part devices
  *
  * 17.07.2006: Now the script creates also devices without packages.
- *             When a device has more then one part then it use symbol name
+ *             When a device has more than one part then it use symbol name
  *             for the alias "F0, F1, .."
- *             When it has more then one package then it use the device name
+ *             When it has more than one package then it use the device name
  *
- * 19.06.2006: Bugfix, devices with more then one packages will now generate
+ * 19.06.2006: Bugfix, devices with more than one package will now generate
  *             a device for each package
  *
  * 14.06.2006: Add the translation feature for multipart devices
@@ -181,8 +181,8 @@ int writePins = 0;
 int drawPinNumber = 1;
 int drawPinName = 1;
 int outPutAlias = 1;
-int outPutFootPrint = 1;     // Controls the Out put foot print in F2
-int outPutFootPrints = 1;     // Controls the Out put footprints in $FPLIST
+int outPutFootPrint = 1;     // Controls the Output footprint in F2
+int outPutFootPrints = 1;     // Controls the Output footprints in $FPLIST
 string footPrintList = "";
 string footPrintPreFix = "";     // Prefix for footPrint note maybe blank
 string undefinedPartPreFix = "M";
@@ -191,24 +191,24 @@ string aliasList = "";     // list of part alias's
 int wildCardPrefix = 1;  // 1 = pre add * wild card to $FPLIST footprint list names
 int wildPostfix  = 1; // 1 = post add * wild card to $FPLIST footprint list names
 
-int eaglePartToKiCadPartConversion = 1; // control's if we cobine footprints or not, 0 = combine, 1 = dont combine
+int eaglePartToKiCadPartConversion = 1; // controls if we combine footprints or not, 0 = combine, 1 = don't combine
 
 int devicesetsCount = 0;
 int devicesCount = 0;
 
-int deleteTextArfterATsysbolInPinName = 1;   //Eagle dos not show any text in pin name's arfter the @ sysbold.
+int deleteTextArfterATsysbolInPinName = 1;   //Eagle does not show any text in pin names after the @ symbol.
 int deleteNameTextSCH = 1;   //Delete >Name from schematic
 int deleteValueTextSCH = 1;   //Delete >Value from schematic
-string  symbolicPrefix;      /*list  symbolic prefix(s)(commer seperated) not to show pin's or pad's or Part, or symbolic prefix for,  Note list format is D, C, X, V, #  */
+string  symbolicPrefix;      /*list  symbolic prefix(s)(comma separated) not to show pins or pads or Part, or symbolic prefix for,  Note list format is D, C, X, V, #  */
 
-int dontShowPin = 1;   //Dont show pin's from symbloicPrefix list
-int dontShowPad = 1;   //Dont show Pad's from symbloicPrefix list
-int dontShowPartName = 1;   //Dont show part name from symbloicPrefix list
-int dontShowPartValue = 1;   //Dont show part name from symbloicPrefix list
+int dontShowPin = 1;   //Dont show pins from symbolicPrefix list
+int dontShowPad = 1;   //Dont show pads from symbolicPrefix list
+int dontShowPartName = 1;   //Dont show part name from symbolicPrefix list
+int dontShowPartValue = 1;   //Dont show part name from symbolicPrefix list
 
-string pinNamePnumberList[]; // Holds aray of pint number and name + padcount
-string packageNameList[]; // Holds aray of package names
-string packageNameListMatch[]; // Holds aray of package names
+string pinNamePnumberList[]; // Holds array of pin number and name + padcount
+string packageNameList[]; // Holds array of package names
+string packageNameListMatch[]; // Holds array of package names
 
 string NameSCH = ">Name";
 string ValueSCH = ">Value";
@@ -239,36 +239,36 @@ string outputPath;
 string infoDeviceConversion = "<pre>Allows combining of device's into one KiCad lib part if the pin name/number match exactly.<br>"+
                               "Note pin number/name not package type or the number of pins on the package is the deciding factor.<br>"+
                               "If not enabled conversion will make a new KiCad library part/module for every one of eagle<br>devices/footprint this of course "+
-                              "make's for a very large KiCad library so this give's<br>the option of combining the eagle part's where"+
+                              "makes a very large KiCad library so this gives<br>the option of combining the eagle parts where"+
                               " possible to make a Kicad library,<br>there is some risk to this, as the matching process could have<br>"+
-                              "<b><br>So it's import you check the results when using this option<b>!!!</b></pre>";
+                              "<b><br>So when imported, check the results when using this option<b>!!!</b></pre>";
 
-string infoTechnologies = "Make KiCad part Alias's from the <i>Eagle</i> Technologies definition in Eagle device\'s";
+string infoTechnologies = "Make KiCad part Aliases from the <i>Eagle</i> Technologies definition in Eagle devices";
 
 string infoLibNamePartNamePrefix = "Prefix lib-name to the Part-name IE: LibFred_PartName";
 
-string infoDeleArfter = "<pre>Eagle SCH/PCB will not show any charters after \'@\' in pin names<br>"+
-                        "Checking this will delete any charters after and including the <b>'@'</b><br>so it wont show in KiCad</pre>";
+string infoDeleArfter = "<pre>Eagle SCH/PCB will not show any characters after \'@\' in pin names<br>"+
+                        "Checking this will delete any characters after and including the <b>'@'</b><br>so it won't show in KiCad</pre>";
 
 string infoPreFixSeach = "Add a wild card prefix '*' to each footprint in the footprint list,  this allows easy footprint searching in CvPCB.";
 
 string infoPostFixSeach = "Add a wild card post-fix '*' to each footprint in the footprint list,  this allows easy footprint searching in CvPCB.";
 
-string infoNoPrefix = "If a eagle lib part has no prefix IE:  \"U\", \"R\", \"C\" etc, then we use this letter(s) for SCH/Part Prefix";
+string infoNoPrefix = "If a eagle lib part has no prefix i.e.:  \"U\", \"R\", \"C\" etc, then we use this letter(s) for SCH/Part Prefix";
 
-string infoFootPrintList = "KiCad use's the footprint list to help select from the list of PCB module/footprint(s) in KiCad's module lib.<br>This option controls the output, and output format"+
+string infoFootPrintList = "KiCad uses the footprint list to help select from the list of PCB module/footprint(s) in KiCad's module lib.<br>This option controls the output, and output format"+
                            " given to KiCad<br>Note: This is not the same as KiCad footprint";
 
-string infoFootPrint = "<pre>You have 2 options, for the footprint name in KiCad.<br>Just use eagle device name for the footprint name in KiCad,<br>"+
+string infoFootPrint = "<pre>You have 2 options for the footprint name in KiCad.<br>Just use eagle device name for the footprint name in KiCad,<br>"+
                        "OR prefix the eagle lbr name to the eagle device name to crate the the KiCad footprint name.<br>"+
-                       "IE: \"eagleLbrName-eagleDeviceName\".<br>"+
+                       "i.e.: \"eagleLbrName-eagleDeviceName\".<br>"+
                        "Note: is not the same as the footprint list. In KiCad<br>"+
                        "Which is used to filter the module footprints displayed in KiCad's CvPcb program.</pre>";
 
 
-string infoFootPrintPrefix = "You can override the default eagle lib name, which is the prefix to the KiCad footprint name.<br>Note: that this program always adds '_' between  prefix name and foot print name.";
+string infoFootPrintPrefix = "You can override the default eagle lib name, which is the prefix to the KiCad footprint name.<br>Note: that this program always adds '_' between prefix name and foot print name.";
 
-string infoTextMaxMinValue = "<pre>You can override text font line width size in eagle, and use the Max and Min line width,<br>which KiCad use's to draw the text<br>"+
+string infoTextMaxMinValue = "<pre>You can override text font line width size in eagle, and use the Max and Min line width,<br>which KiCad uses to draw the text<br>"+
                              "IE:  Any text line width which is bigger than Max line will be replaced with Max value.<br>"+
                              "     Any text line width which is less than Min line will be replaced with Min width value.</pre>";
 
@@ -434,14 +434,14 @@ real   g_Fact = 254 * 32;      // global uMeter to uInch conversion factor
 real LibTexPosionOffset = 0.770;
 real textSizeCorrectionfactor = 0.8;
 string missingPrefixLog[];
-int g_missingPrefix = 0; // global Indicator if an eagle devices hasn't got an prefix
+int g_missingPrefix = 0; // global Indicator if an eagle device hasn't got a prefix
 string errorLog[];
 int warnings_count = 0;
 int errors_count = 0;
 
 /**
- * @brief replace new line charter with string "\n" as kicad can handel that, but not new line chareter
- * @param  textString string with new line charter '\n'
+ * @brief replace new line character with string "\n" as kicad can handle that, but not new line character
+ * @param  textString string with new line character '\n'
  * @return            string with "\n" in '\n' place
  */
 string stripLfCrToEscCRLF( string textString )
@@ -468,7 +468,7 @@ string stripLfCrToEscCRLF( string textString )
             }
         }
         else
-        {   // Ok bad chart so replace with ~
+        {   // Ok bad char so replace with ~
             newString[idx2] = '~';
             idx++;
             idx2++;
@@ -488,20 +488,20 @@ real unitConver(int unitConvertTo, int unitConvertFrom, real inputValue)
 {
     // 0 = MM, 1 = Inch, 2 = Thousands of inch
 
-    real converversionTable0[] = {1.0, 25.4, 0.0254};
-    real converversionTable1[] = {0.03937007874, 1.0, 0.001};
-    real converversionTable2[] = {39.37007874, 1000.0, 1.0};
+    real conversionTable0[] = {1.0, 25.4, 0.0254};
+    real conversionTable1[] = {0.03937007874, 1.0, 0.001};
+    real conversionTable2[] = {39.37007874, 1000.0, 1.0};
 
     switch(unitConvertTo)
     {
     case 0: // MM
-        return (inputValue * converversionTable0[ unitConvertFrom ]);
+        return (inputValue * conversionTable0[ unitConvertFrom ]);
         break;
     case 1: // INCH
-        return (inputValue * converversionTable1[ unitConvertFrom ]);
+        return (inputValue * conversionTable1[ unitConvertFrom ]);
         break;
     case 2: // TOINCH
-        return (inputValue * converversionTable2[ unitConvertFrom ]);
+        return (inputValue * conversionTable2[ unitConvertFrom ]);
         break;
     }
 
@@ -547,9 +547,9 @@ int issmd(UL_PACKAGE PAC)
 }
 
 /**
- * @brief  replaces all occurrences of a charter in a string with a string
- * @param  search  charter to search
- * @param  replace charter to replace
+ * @brief  replaces all occurrences of a character in a string with a string
+ * @param  search  character to search
+ * @param  replace character to replace
  * @param  subject original string
  * @return         return modified string
  */
@@ -614,15 +614,15 @@ string escape_quotes(string input)
 }
 
 //****
-//  Truncats string, from delimiter charter in string
-//  Return trancated  string
+//  Truncats string, from delimiter character in string
+//  Return truncated  string
 
 /**
  * @brief  Splits a string and return the first one.
  * @param  name      original string
  * @param  delimiter delimited charter
- * @param  flag      if 0, return original string, else the splited string
- * @return           splited string
+ * @param  flag      if 0, return original string, else the splitted string
+ * @return           splitted string
  */
 string stripArfterAT(string name, char delimiter, int flag)
 {
@@ -632,7 +632,7 @@ string stripArfterAT(string name, char delimiter, int flag)
     if(flag == 0)
         return name;
 
-    // Split, if more the 1 delimiter take ony the first part, if not found return with no change
+    // Split, if more than 1 delimiter, take ony the first part, if not found return with no change
     if( strsplit(a, name, delimiter) >= 1 )
         return a[0];
     else
@@ -653,10 +653,10 @@ string intToString( int value )
 }
 
 /**
- * @brief  search for conflicking part
+ * @brief  search for conflicting part
  * @param  search search part in partList
  * @param  offset offset in partList
- * @return        return "-CONFLICKING-PART-" if there is a conflict, And add to conflictPartsLibsList[] list
+ * @return        return "-CONFLICTING-PART-" if there is a conflict, And add to conflictPartsLibsList[] list
  *                else return "" if all good
  */
 string partlistSearchAdd( string search, int offset )
@@ -692,7 +692,7 @@ string partlistSearchAdd( string search, int offset )
 
     conflictPartsLibsList[ conflictPartsLibsListsize++ ] = search;
 
-    return "-CONFLICKING-PART-" +  intToString( conflictPartsLibsListsize ) ;
+    return "-CONFLICTING-PART-" +  intToString( conflictPartsLibsListsize ) ;
 
 }
 
@@ -942,7 +942,7 @@ void write_kicad_mod_text(UL_PACKAGE PAC)
     PAC.texts(T)
     {
         textWidth = 0;
-        // find the max with of font/text
+        // find the max width of font/text
         T.wires(W)
         {
             textWidth =  W.width / eagleToKiCadUnitCoversionFactor1;
@@ -1124,7 +1124,7 @@ void write_kikad_mod_body(UL_LIBRARY LIB)
         else
             printf("$MODULE %s-%s\n", escape_quotes(g_lib_prefix), escape_quotes(strupr( charstr_replace(",/", "_", PAC.name))));
 
-        //      if ( outPutFootPrint  )  // Prefix libprefix in foot print name
+        //      if ( outPutFootPrint  )  // Prefix libprefix in footprint name
         //        printf("$MODULE %s-%s\n", escape_quotes(g_lib_prefix), escape_quotes(strupr(PAC.name)));
         //      else
         //        printf("$MODULE %s\n", escape_quotes(strupr(PAC.name)));
@@ -1244,7 +1244,7 @@ void write_kikad_polygon( UL_GATE G, int transX, int transY, int gatePos )
             countPolyCoord += 2;
         }
 
-        if( polyCoord[0] == ' ' )  // Remove leading space, not shure how it get's in the string !!
+        if( polyCoord[0] == ' ' )  // Remove leading space, not sure how it gets in the string !!
             polyCoord = strsub( polyCoord, 1);
 
         printf("P %d %d %d %d %s %c N\n", countPolyCoord, gatePos, 1, 0, polyCoord, fillPattern);
@@ -1365,7 +1365,7 @@ void write_kikad_text( UL_GATE G, int transX, int transY, int gatePos )
 
         // printf("writeing text\n");
 
-        // Check for valid charters and replace with '~' if not
+        // Check for valid characters and replace with '~' if not
         // Note that includes ' '  will be replaced with '~'
         //	for (int idx = 0; textString[idx]; ++idx)
         //	{
@@ -1411,7 +1411,7 @@ void write_kikad_text( UL_GATE G, int transX, int transY, int gatePos )
 
         }
 
-        if ((strupr(T.value) == ">NAME") || (strupr(T.value) == ">VALUE" )) // Dont write place holders
+        if ((strupr(T.value) == ">NAME") || (strupr(T.value) == ">VALUE" )) // Don't write place holders
             continue;
         else
             printf("T %d %d %d %.0f %d %d %d \"%s\"  Normal 0 C C\n", orient, posX, posY,
@@ -1449,7 +1449,7 @@ void write_kikad_pins( UL_GATE G, int  transX, int transY, int gatePos )
 
         if (pinCount >= 9999 )
         {
-            dlgMessageBox("Canceled! To many pin numbers. (>9999)" );
+            dlgMessageBox("Cancelled! Too many pin numbers. (>9999)" );
             exit(EXIT_FAILURE);
         }
 
@@ -1579,7 +1579,7 @@ void write_kikad_pins( UL_GATE G, int  transX, int transY, int gatePos )
             break;
         }
 
-        P.contacts(pad)  // Real componet ?
+        P.contacts(pad)  // Real component ?
         {   // Yes
             if (padCount > 0)
             {
@@ -1594,11 +1594,11 @@ void write_kikad_pins( UL_GATE G, int  transX, int transY, int gatePos )
             padCount++;
         }
 
-        if (padCount == 0) // Virtual componet ?
+        if (padCount == 0) // Virtual component ?
         {   //Yes
-            pinShape = "N";        // Pin shape is hide for KiCad !
-            if( pinType == 'w' )   // Change meaning for virual suplie ?
-                pinType = 'W';   // Change meaning for virual suplie to Input
+            pinShape = "N";        // Pin shape is hidden for KiCad !
+            if( pinType == 'w' )   // Change meaning for virtual supply ?
+                pinType = 'W';   // Change meaning for virtual supply to Input
 
 
             printf("P 2 %d %d %d %d %d %d %d N\n", gatePos, 0, 0, posX, posY, x2, y2 );
@@ -1728,14 +1728,14 @@ void write_kikad_def_alias( UL_DEVICE DEV, UL_GATE G, string symbolName, int cou
 
     //    if ( DEV.prefix == "" ) // No prefix ?
     //    {
-    if ( hasName  )  // dose it have a >Name  so use the genrated prifix
+    if ( hasName  )  // does it have a >Name  so use the generated prifix
         printf("F0 \"%s\" %d %d %d %c %c %c %cNN\n", prefixString, prefix_X, prefix_Y, 45, orient, 'V', hAlign, vAlign);
     else
         printf("F0 \"%s\" %d %d %d %c %c %c %cNN\n", prefixString, prefix_X, prefix_Y, 45, orient, 'I', hAlign, vAlign);
     //    }
-    //    else  // good we have prifix so use that
+    //    else  // good we have prefix so use that
     //    {
-    //         if ( hasName  )  // dos it have a >Name prifix
+    //         if ( hasName  )  // does it have a >Name prifix
     //	    printf("F0 \"%s\" %d %d %d %c %c %c %cNN\n", DEV.prefix, prefix_X, prefix_Y, 50, orient, 'V', hAlign, vAlign);
     //	 else
     //	    printf("F0 \"%s\" %d %d %d %c %c %c %cNN\n", DEV.prefix, prefix_X, prefix_Y, 50, orient, 'I', hAlign, vAlign);
@@ -1750,13 +1750,13 @@ void write_kikad_def_alias( UL_DEVICE DEV, UL_GATE G, string symbolName, int cou
     if ( DEV.package )
         switch( outPutFootPrint )
         {
-        case 0: // Dont prefix lib name to footprint name
+        case 0: // Don't prefix lib name to footprint name
             printf("F2 \"%s\" 30 150 20 H I C CNN\n", escape_quotes( charstr_replace(",/()", "_", DEV.package.name)));
             break;
-        case 1: // Prexfix lib name to footprint name
+        case 1: // Prefix lib name to footprint name
             printf("F2 \"%s_%s\" 30 150 20 H I C CNN\n", footPrintPreFix, escape_quotes( charstr_replace(",/()", "_", DEV.package.name)));
             break;
-        case 2: // Prexfix name to footprint name
+        case 2: // Prefix name to footprint name
             printf("F2 \"%s_%s\" 30 150 20 H I C CNN\n", footPrintPreFix, escape_quotes( charstr_replace(",/()", "_", DEV.package.name)));
             break;
         }
@@ -1771,7 +1771,7 @@ void write_kikad_def_alias( UL_DEVICE DEV, UL_GATE G, string symbolName, int cou
 
         for( int n = 0; n < ctx; n++ )
         {
-            if( strlen( tmps = partlistSearchAdd( tmpxy[ n ], 0 )) == 0 ) // Search for conflicting partname in Alisa list
+            if( strlen( tmps = partlistSearchAdd( tmpxy[ n ], 0 )) == 0 ) // Search for conflicting partname in Alias list
             {
                 //          printf("\nGood =%s", tmpxy[ n ] );
                 continue;  // all good so continue
@@ -1780,12 +1780,12 @@ void write_kikad_def_alias( UL_DEVICE DEV, UL_GATE G, string symbolName, int cou
             {
                 //          printf("\nBad =%s", tmpxy[ n ] );
                 tmpxy[ n ] = tmpxy[ n ] + tmps; // Add error to alias part name
-                aliasList = strjoin( tmpxy, ' ' );  // Make new alais list with conflict error note
+                aliasList = strjoin( tmpxy, ' ' );  // Make new alias list with conflict error note
                 break;
             }
         }
 
-        if( strlen( aliasList ) > 0 )  // check for any alias's
+        if( strlen( aliasList ) > 0 )  // check for any aliases
             printf("ALIAS %s\n", aliasList );
     }
 
@@ -1855,8 +1855,8 @@ void write_kikad_lib( string fileName )
                     devicesCount = 0;
 
                     //********************************
-                    // Find the number of deivce's and add the name's to a aray list of device names/package name lists,
-                    // Also pin list for compair
+                    // Find the number of devices and add the names to an array list of device names/package name lists,
+                    // Also pin list for compare
                     int DevSetPackageCount = 0;
                     D.devices(DEV)
                     {
@@ -1865,7 +1865,7 @@ void write_kikad_lib( string fileName )
                         if( DEV.package )
                             packageNameList[DevSetPackageCount] = str_replace(",", "_", DEV.package.name );  // Add to package list
 
-                        DEV.gates(G)    // Make a list of pine's for the device match
+                        DEV.gates(G)    // Make a list of pins for the device match
                         {
                             string temp = "";
                             G.symbol.pins(P)
@@ -1874,12 +1874,12 @@ void write_kikad_lib( string fileName )
                                 {
                                     padCount++;
                                     sprintf( temp ,  "%s%s%d",  P.name, pad.name, padCount );
-                                    pinNamePnumberList[DevSetPackageCount] +=  temp;   // Make a list of pine's for the divice match
+                                    pinNamePnumberList[DevSetPackageCount] +=  temp;   // Make a list of pins for the device match
                                 }
                             }
                         }
 
-                        if( DEV.package ) // Any packages for this deivice ?
+                        if( DEV.package ) // Any packages for this device ?
                             DevSetPackageCount++; // Inc package count then.
                     } // end of D.devices(DEV)
 
@@ -2004,25 +2004,25 @@ void write_kikad_lib( string fileName )
                             else // No!
                                 nameString = D.name;
 
-                            // Dose name have place holder for package variant name ?
+                            // Does name have place holder for package variant name ?
                             if( strstr(nameString, "?", 0) != -1 )
                             {   // Yes!
                                 if( DEV.name != "\'\'" ) //  variant have '' ?
-                                    nameString = str_replace( "?", DEV.name, nameString ); // No '', so we can used the variant name.. for device name.
+                                    nameString = str_replace( "?", DEV.name, nameString ); // No '', so we can use the variant name.. for device name.
                                 else
                                 {   // Yes we have package name variant of '',  and we have a place holder for it in the name, so replace the '?' with nothing
                                     nameString = str_replace( "?", "", nameString );
                                 }
                             }
                             else // No ! place holder for variant name !
-                            {   // So just append the Variant named to the device name.
+                            {   // So just append the Variant name to the device name.
                                 nameString = nameString + ((DEV.name != "\'\'") ? DEV.name : "");
                             }
 
 
                             /*
-                              if( DEV.name == "\'\'" ) // '' dose it have a package variant name of '', Note this is not the package name !!
-                              nameString = D.name;   // if package variant name = ''  don't add it to deivce name
+                              if( DEV.name == "\'\'" ) // '' does it have a package variant name of '', Note this is not the package name !!
+                              nameString = D.name;   // if package variant name = ''  don't add it to device name
                               else
                               {
                               //    if( strstr(D.name, "*", 0) != -1 ) // is there place holder for part tec ?
@@ -2046,13 +2046,13 @@ void write_kikad_lib( string fileName )
 
                         /*
 
-                          if( DEV.name == "\'\'" ) // '' dose it have a package variant name of the package, Note this is not the package name !!
+                          if( DEV.name == "\'\'" ) // '' does it have a package variant name of the package, Note this is not the package name !!
                           {
                             nameString =  str_replace( "?", "", str_replace( "*", "", D.name ));
                           }
                           else
                           {
-                            if( eaglePartToKiCadPartConversion ) // yes so clean up the mess to alow the eagle to kicad sch to work
+                            if( eaglePartToKiCadPartConversion ) // yes so clean up the mess to allow the eagle to kicad sch to work
                               nameString =  str_replace( "*", "", D.name ) + DEV.name; // Add package variant name,  part name
                             else
                               nameString =  str_replace( "*", "", D.name );
@@ -2077,9 +2077,9 @@ void write_kikad_lib( string fileName )
                         char partType = 'N';
 
 
-                        // Scan thou  pins looking for visabele not visable status
-                        int pinNameVisable = 0;
-                        int pinNumberVisable = 0;
+                        // Scan through pins looking for visible not visible status
+                        int pinNameVisible = 0;
+                        int pinNumberVisible = 0;
                         int pinCt = 0;
                         int pinPower = 0;
 
@@ -2089,7 +2089,7 @@ void write_kikad_lib( string fileName )
                             {
                                 pinCt++;
 
-                                if( P.direction == PIN_DIRECTION_SUP ) // power supply pin pin ?
+                                if( P.direction == PIN_DIRECTION_SUP ) // power supply pin ?
                                     pinPower = 1; // yes
 
                                 if( P.visible == 0)
@@ -2097,10 +2097,10 @@ void write_kikad_lib( string fileName )
                                 else
                                 {
                                     if ( P.visible == 1 || P.visible == 3 )
-                                        pinNameVisable++;
+                                        pinNameVisible++;
 
                                     if ( P.visible == 2 || P.visible == 3 )
-                                        pinNumberVisable++;
+                                        pinNumberVisible++;
                                 }
                             }
                         }
@@ -2109,8 +2109,8 @@ void write_kikad_lib( string fileName )
                         if ( DEV.prefix == "" )
                         {
                             string c;
-//                            if((!( DEV.package )) && ( pinCt <= 1 )) // dose it have a package ?
-                            if( !DEV.package ) // dose it have a package ?
+//                            if((!( DEV.package )) && ( pinCt <= 1 )) // does it have a package ?
+                            if( !DEV.package ) // does it have a package ?
                             {   // No so print NO-PACKAGE
                                 sprintf(c, "\nMissing Prefix Part =%s\t\t\t\t%s\t\t\t\t\t%s\t\t%s", DEV.name, "NO-PACKAGE", DEV.library, undefinedPartPreFix );
                                 logfile += c;
@@ -2125,22 +2125,22 @@ void write_kikad_lib( string fileName )
                             g_missingPrefix++;
                             sprintf( prefixString, "%s", undefinedPartPreFix);
                         }
-                        if( (!( DEV.package )) && ( pinCt <= 1 )) // dos it have package and pint count <= 1 ?
+                        if( (!( DEV.package )) && ( pinCt <= 1 )) // does it have package and pin count <= 1 ?
                         {
-                            prefixString = "#" + prefixString; //  No, so mark as virtual componet
+                            prefixString = "#" + prefixString; //  No, so mark as virtual component
                             if( pinPower == 1 )  // Is it a power supply pin ?
-                                partType = 'P';   // Ok mark as vuiral Power supply
+                                partType = 'P';   // Ok mark as virtual Power supply
                         }
 
 
                         switch (drawPinNumber)
                         {
-                        case 0:   // Always show pin numbers ?,   as KiCad only has globale controle !
+                        case 0:   // Always show pin numbers ?,   as KiCad only has global control !
                             drawPinNumberStr = "Y";
                             break;
 
-                        case 1:  // Never show pin numbers ?,   as KiCad only has globale controle !
-                            if( pinNumberVisable )
+                        case 1:  // Never show pin numbers ?,   as KiCad only has global control !
+                            if( pinNumberVisible )
                                 drawPinNumberStr = "Y";
                             break;
 
@@ -2153,16 +2153,16 @@ void write_kikad_lib( string fileName )
 
                         switch (drawPinName)
                         {
-                        case 0:   // Always show pin Names ?,   as KiCad only has globale controle !
+                        case 0:   // Always show pin Names ?,   as KiCad only has global control !
                             drawPinNameStr = "Y";
                             break;
 
-                        case 1:   // Show pin name base on eagle sysmbol ?,   as KiCad only has globale controle !
-                            if( pinNameVisable )
+                        case 1:   // Show pin name base on eagle symbol ?,   as KiCad only has global control !
+                            if( pinNameVisible )
                                 drawPinNameStr = "Y";
                             break;
 
-                        case 2: // Dont show pin names
+                        case 2: // Don't show pin names
                             drawPinNameStr = "N";
                             break;
                         }
@@ -2188,9 +2188,9 @@ void write_kikad_lib( string fileName )
                                     continue;
                                 }
 
-                                if( DEV.name != "''" ) // We DEV.name ? then  add it.
-                                {   // DEV.nanme found so add it
-                                    if(( strstr(D.name, "*", 0) != -1 ) && (strstr(D.name, "?", 0) != -1) )  // is there a place to put the Tec alias and package alas ?
+                                if( DEV.name != "''" ) // We DEV.name ? then add it.
+                                {   // DEV.name found so add it
+                                    if(( strstr(D.name, "*", 0) != -1 ) && (strstr(D.name, "?", 0) != -1) )  // is there a place to put the Tec alias and package alais ?
                                     {
                                         /* printf("\nX1\n"); */
                                         /* printf("|%d :%s :%s :%s", count, alias[count], D.name, DEV.name ); */
@@ -2201,9 +2201,9 @@ void write_kikad_lib( string fileName )
                                     {
                                         //                                  printf("|%d :%s :%s :%s", count, alias[count], D.name, DEV.name );
                                         //                                  printf("\nXXX\n");
-                                        aliasList += str_replace( "*", alias[count++], D.name ) + DEV.name;  // Put the Alias's in. and apend the package alias
+                                        aliasList += str_replace( "*", alias[count++], D.name ) + DEV.name;  // Put the Aliases in and append the package alias
                                     }
-                                    //		  aliasList += str_replace( "*", alias[count++], D.name );  // Put the Alias's in. and apend the package alias
+                                    //		  aliasList += str_replace( "*", alias[count++], D.name );  // Put the Aliases in and append the package alias
 
 
                                     if(( strstr(D.name, "*", 0) == -1 ) && (strstr(D.name, "?", 0) != -1 ))  // Is there no place holder for Tec alias but place holder for package alias ?
@@ -2230,7 +2230,7 @@ void write_kikad_lib( string fileName )
                                 if( aliasCt )  // last one ?
                                     aliasList += " ";  // Not last so add space
 
-                                // Do we have part name in Alisa list ?
+                                // Do we have part name in Alias list ?
                                 if( strstr( aliasList, nameString, 0) != -1 )
                                 {
                                     //				printf("\n# found !");
@@ -2242,10 +2242,10 @@ void write_kikad_lib( string fileName )
                         // combine common footprints ?
                         if( eaglePartToKiCadPartConversion  == 0 )
                         {
-                            for( ; ct1; ct1--) 			// ct1 contians DevSetPackageCount;
+                            for( ; ct1; ct1--) 			// ct1 contains DevSetPackageCount;
                             {
                                 if( ct == 0 )  // first package ?
-                                {   // allways put out the first package
+                                {   // always put out the first package
                                     output_part = 1;  // force output of part
                                     ct1--;
                                     ct ++;
@@ -2255,7 +2255,7 @@ void write_kikad_lib( string fileName )
                                 for( int j = 0; j < ct; j++)  // Seach to see if we have a package/pin match ?
                                 {
                                     if ( strstr( packageNameListMatch[ j ], packageNameList[ ct ] ) != -1 )
-                                    {   // Match found so dont out put part
+                                    {   // Match found so don't output part
                                         output_part = 0;
                                         break;
                                     }
@@ -2267,7 +2267,7 @@ void write_kikad_lib( string fileName )
                                 break;
                             }
                         }
-                        else //  Ok seprate part for every device !
+                        else //  Ok separate part for every device !
                         {
                             output_part = 1;
                         }
@@ -2380,7 +2380,7 @@ void write_kikad_lib( string fileName )
 
 
 /**
- * Select the path where the modfile will be saved
+ * Select the path where the mod file will be saved
  * @param startPath mod path
  */
 void openModPath( string startPath )
@@ -2456,7 +2456,7 @@ string showPinNames[] = { "Always show pin names",  "Only show pin names if enab
 string showPinNumbers[] = { "Always show pin Numbers",  "Only show pin Numbers if enabled in eagle symbol", "Never show Pin numbers" };
 string addFootPrintList[] = { "No Footprints list",  "Output footprint list", "Output lib prefix in footprint list" };
 string outPutFootPrintOptions[] = { "Don't prefix lib-name to footprint name in mod", "Prefix lib name to footprint name in mod" };
-string eaglePartToKiCadPartConversiontion[] = {"Combine Parts/package variants where possible", "Out put new part for every foot print type"};
+string eaglePartToKiCadPartConversiontion[] = {"Combine Parts/package variants where possible", "Output new part for every footprint type"};
 
 int showPinNamesSelected = 1; // initially "
 int showPinNumbersSelected = 1; // initially "
@@ -2472,7 +2472,7 @@ int height = 2;
 
 
 /**
- * @brief  main window for script configration
+ * @brief  main window for script configuration
  * @param  titleString window title
  * @return             if the dialog is simply closed, the return value will be 0.
  */
@@ -2564,7 +2564,7 @@ int mainDialog( string titleString )
             }
             dlgHBoxLayout
             {
-                dlgLabel("Defult Prefix for for sch parts which have no prefix");
+                dlgLabel("Default Prefix for sch parts which have no prefix");
                 dlgStringEdit(undefinedPartPreFix);
                 dlgStretch(0);
                 dlgPushButton("Info") {
@@ -2586,7 +2586,7 @@ int mainDialog( string titleString )
 
             dlgHBoxLayout
             {
-                dlgCheckBox("Use eagle Technologies to gerate KiCad part Alias", outPutAlias);
+                dlgCheckBox("Use eagle Technologies to generate KiCad part Alias", outPutAlias);
                 dlgStretch(0);
                 dlgPushButton("Info") {
                     if (dlgMessageBox( infoTechnologies, "Ok") == 0);
@@ -2747,16 +2747,16 @@ int main()
     if( ( strlen(tmpXX) >= 1 ))   // Has it been set ?
         if ( strtol( tmpXX ) == 1 ) // Yes
         {
-            add_libnamePrefixToPartName = 0; // Dont add lib name's to deivce name's for now *** !!
-            outPutFootPrint = 0; // Don't add lib name to foot print name as it has aready been added for now ****!!
+            add_libnamePrefixToPartName = 0; // Don't add lib names to device names for now *** !!
+            outPutFootPrint = 0; // Don't add lib name to footprint name as it has already been added now ****!!
         }
         else
         {
-            add_libnamePrefixToPartName = 0; // Dont add lib name to part name as it has aready been added.
-            outPutFootPrint = 0; // Don't add lib name to foot print name as it has aready been added.
+            add_libnamePrefixToPartName = 0; // Don't add lib name to part name as it has already been added.
+            outPutFootPrint = 0; // Don't add lib name to footprint name as it has already been added.
         }
 
-    // we are aready where the target dir is.
+    // we are already where the target dir is.
     tmpXX = cfgget( cfg_TARGET_DIR );
     if( strlen( tmpXX ))
         outputPath = tmpXX;
@@ -2815,7 +2815,7 @@ int main()
         string msgString, msgString1,  msgString2;
 
       if( conflictPartsLibsListsize )
-          sprintf( msgString, ":\n<h2><font color=\"red\">There are duplict part names, which have been rename to XXXXX--CONFLICKING-PART-errrorCount: number of duplcate partnames =%d</font></h2>\n", conflictPartsLibsListsize );
+          sprintf( msgString, ":\n<h2><font color=\"red\">There are duplicate part names, which have been renamed to XXXXX--CONFLICKING-PART-errrorCount: number of duplicate partnames =%d</font></h2>\n", conflictPartsLibsListsize );
 
       if( warnings_count )
           sprintf( msgString1, "!\n<h2><font color=\"brown\">!There are: %d   Warnings.</font></h2>\n", warnings_count);
@@ -2856,7 +2856,7 @@ int main()
         };
         dlgVBoxLayout
         {
-            dlgLabel( "There were <b>warnings/error's</b> during the conversion, Here is the contents of <b><i>"+ filename(logfileName) +
+            dlgLabel( "There were <b>warnings/errors</b> during the conversion, Here is the content of <b><i>"+ filename(logfileName) +
             "  </i></b>File located at-"+
             "<br><b>:<i>"+logfileName);
             dlgTextView( logmessags );
@@ -2866,7 +2866,7 @@ int main()
     /* }else */
     /*   dlgMessageBox("Conversion finished"); */
 
-    cfgset( cfg_ConversionLogFileName, "" ); // Set to Null for next time so we dont get confused if the conversion programe has not been run first.
+    cfgset( cfg_ConversionLogFileName, "" ); // Set to Null for next time so we don't get confused if the conversion program has not been run first.
 
     exit(EXIT_SUCCESS);
 
